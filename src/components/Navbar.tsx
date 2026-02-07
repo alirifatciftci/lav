@@ -1,36 +1,35 @@
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import logo from '../assets/lavlogoname.png';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
 
   const navLinks = [
     { to: '/', label: 'Anasayfa' },
-    { to: '/kurumsal', label: 'Kurumsal' },
-    { to: '/hizmetler', label: 'Hizmetler' },
     { to: '/projeler', label: 'Projeler' },
+    { to: '/hizmetler', label: 'Hizmetler' },
+    { to: '/kurumsal', label: 'Kurumsal' },
     { to: '/ekip', label: 'Kadro' },
     { to: '/iletisim', label: 'İletişim' },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-center items-center h-24">
-          <Link to="/" className="absolute left-4 sm:left-6 lg:left-8 flex items-center">
-            <img src={logo} alt="LAV Architecture" className="h-14 brightness-110" />
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent">
+      <div className="max-w-7xl mx-auto px-8">
+        <div className="flex items-center justify-between h-16">
+          <Link to="/" className="flex items-center">
+            <img src={logo} alt="LAV Mimarlık" className="h-8 brightness-0 invert" />
           </Link>
 
-          <div className="hidden md:flex items-center space-x-12">
+          <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
                 className={({ isActive }) =>
-                  `text-base font-medium tracking-widest transition-all duration-200 text-white hover:text-yellow-400 uppercase ${
+                  `text-white hover:text-yellow-400 transition-colors font-body text-sm ${
                     isActive ? 'text-yellow-400' : ''
                   }`
                 }
@@ -42,26 +41,24 @@ export default function Navbar() {
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden absolute right-4 sm:right-6 lg:right-8 p-2 text-white hover:text-yellow-400"
+            className="md:hidden text-white"
           >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-black/95 backdrop-blur-md border-t border-gray-800">
-          <div className="px-4 py-4 space-y-3">
+        <div className="md:hidden bg-black/95 backdrop-blur-md border-t border-gray-900">
+          <div className="px-8 pt-2 pb-4 space-y-2">
             {navLinks.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
                 onClick={() => setIsOpen(false)}
                 className={({ isActive }) =>
-                  `block text-base font-medium py-3 uppercase tracking-wider ${
-                    isActive
-                      ? 'text-yellow-400 font-semibold'
-                      : 'text-gray-300 hover:text-yellow-400'
+                  `block py-2 text-white hover:text-yellow-400 transition-colors font-body text-sm ${
+                    isActive ? 'text-yellow-400' : ''
                   }`
                 }
               >

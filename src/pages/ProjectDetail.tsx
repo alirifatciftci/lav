@@ -302,6 +302,30 @@ const projectsData: Record<string, ProjectData> = {
     units: '12 Villa',
     status: 'Tamamlandı'
   },
+  'cinar-villasi': {
+    id: 12,
+    title: 'Çınar Villası',
+    location: 'Bodrum, Muğla',
+    year: '2021',
+    category: 'Villa',
+    scope: 'Tasarım ve Proje',
+    description: 'Çınar Villası, Bodrum\'da konumlanan modern ve lüks bir villa projesidir. Akdeniz mimarisinden esinlenen tasarım, geniş yaşam alanları ve deniz manzarasıyla öne çıkmaktadır.',
+    details: [
+      'Modern villa tasarımı',
+      'Akdeniz mimarisi',
+      'Geniş yaşam alanları',
+      'Deniz manzarası',
+      'Özel havuz',
+      'Peyzaj düzenlemesi',
+      'Lüks iç mekan tasarımı'
+    ],
+    images: [
+      '/src/assets/cınar/cınar1.png',
+      '/src/assets/cınar/cınar2.png',
+      '/src/assets/cınar/cınar3.png'
+    ],
+    status: 'Tamamlandı'
+  },
   'ofis-ic-dizayn-tuzla': {
     id: 12,
     title: 'Ofis İç Dizayn Proje ve Uygulama',
@@ -793,12 +817,9 @@ export default function ProjectDetail() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="bg-gradient-to-b from-black via-gray-900 to-black min-h-screen relative overflow-hidden">
-        {/* Decorative blur elements */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl" />
+      <div className="bg-black min-h-screen">
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+        <div className="max-w-7xl mx-auto px-8 py-16">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -819,7 +840,7 @@ export default function ProjectDetail() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <div className="relative aspect-[4/3] bg-gray-900 overflow-hidden mb-6 shadow-2xl shadow-yellow-400/10 border border-gray-800">
+              <div className="relative aspect-[4/3] bg-gray-900 overflow-hidden mb-6 border border-gray-800">
                 <img
                   src={project.images[currentImageIndex]}
                   alt={`${project.title} - ${currentImageIndex + 1}`}
@@ -830,13 +851,13 @@ export default function ProjectDetail() {
                   <>
                     <button
                       onClick={prevImage}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-yellow-400/90 hover:bg-yellow-400 rounded-full transition-all shadow-xl hover:scale-110"
+                      className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white hover:bg-yellow-400 transition-colors"
                     >
                       <ChevronLeft className="text-gray-900" size={24} />
                     </button>
                     <button
                       onClick={nextImage}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-yellow-400/90 hover:bg-yellow-400 rounded-full transition-all shadow-xl hover:scale-110"
+                      className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white hover:bg-yellow-400 transition-colors"
                     >
                       <ChevronRight className="text-gray-900" size={24} />
                     </button>
@@ -846,8 +867,8 @@ export default function ProjectDetail() {
                         <button
                           key={index}
                           onClick={() => setCurrentImageIndex(index)}
-                          className={`h-1 rounded-full transition-all ${
-                            index === currentImageIndex ? 'bg-yellow-400 w-12' : 'bg-white/50 w-8'
+                          className={`h-1 transition-all ${
+                            index === currentImageIndex ? 'bg-white w-12' : 'bg-white/50 w-8'
                           }`}
                         />
                       ))}
@@ -862,8 +883,8 @@ export default function ProjectDetail() {
                     <button
                       key={index}
                       onClick={() => setCurrentImageIndex(index)}
-                      className={`aspect-[4/3] overflow-hidden border-3 transition-all hover:scale-105 ${
-                        index === currentImageIndex ? 'border-yellow-400 ring-2 ring-yellow-400 shadow-lg shadow-yellow-400/30' : 'border-gray-700'
+                      className={`aspect-[4/3] overflow-hidden border-2 transition-all ${
+                        index === currentImageIndex ? 'border-white' : 'border-gray-800'
                       }`}
                     >
                       <img
@@ -883,53 +904,47 @@ export default function ProjectDetail() {
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               <div className="mb-6">
-                <span className="inline-block px-4 py-2 text-xs font-bold bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 uppercase tracking-widest shadow-lg shadow-yellow-400/30">
+                <span className="inline-block px-4 py-2 text-xs font-bold bg-white text-black uppercase tracking-widest">
                   {project.category}
                 </span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl font-light text-white mb-8 tracking-wide">
+              <h1 className="text-4xl md:text-5xl font-display font-light text-white mb-8">
                 {project.title}
               </h1>
 
-              <div className="space-y-4 mb-10 text-gray-300">
-                <div className="flex items-center text-base">
-                  <div className="w-10 h-10 rounded-full bg-yellow-400/20 flex items-center justify-center mr-4 border border-yellow-400/30">
-                    <MapPin size={20} className="text-yellow-400" />
-                  </div>
-                  <span className="font-medium">{project.location}</span>
+              <div className="space-y-4 mb-10 text-gray-400 font-body">
+                <div className="flex items-center text-sm">
+                  <MapPin size={18} className="mr-3 text-white" />
+                  <span>{project.location}</span>
                 </div>
-                <div className="flex items-center text-base">
-                  <div className="w-10 h-10 rounded-full bg-yellow-400/20 flex items-center justify-center mr-4 border border-yellow-400/30">
-                    <Calendar size={20} className="text-yellow-400" />
-                  </div>
-                  <span className="font-medium">{project.year}</span>
+                <div className="flex items-center text-sm">
+                  <Calendar size={18} className="mr-3 text-white" />
+                  <span>{project.year}</span>
                 </div>
-                <div className="flex items-center text-base">
-                  <div className="w-10 h-10 rounded-full bg-yellow-400/20 flex items-center justify-center mr-4 border border-yellow-400/30">
-                    <Briefcase size={20} className="text-yellow-400" />
-                  </div>
-                  <span className="font-medium">{project.scope}</span>
+                <div className="flex items-center text-sm">
+                  <Briefcase size={18} className="mr-3 text-white" />
+                  <span>{project.scope}</span>
                 </div>
               </div>
 
-              <div className="border-t border-gray-700 pt-8 mb-10">
-                <h2 className="text-2xl font-light text-white mb-6 font-display">
+              <div className="border-t border-gray-800 pt-8 mb-10">
+                <h2 className="text-2xl font-display font-light text-white mb-6">
                   Proje Hakkında
                 </h2>
-                <p className="text-gray-300 leading-relaxed text-base font-body">
+                <p className="text-gray-400 leading-relaxed text-base font-body">
                   {project.description}
                 </p>
               </div>
 
-              <div className="border-t border-gray-700 pt-8">
-                <h3 className="text-xl font-light text-white mb-6 font-display">
+              <div className="border-t border-gray-800 pt-8">
+                <h3 className="text-xl font-display font-light text-white mb-6">
                   Özellikler
                 </h3>
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {project.details.map((detail: string, index: number) => (
-                    <li key={index} className="flex items-start text-gray-300 bg-gray-800/30 p-4 border border-gray-700 hover:border-yellow-400/50 transition-colors">
-                      <span className="inline-block w-2 h-2 bg-yellow-400 rounded-full mt-2 mr-3 flex-shrink-0 shadow-lg shadow-yellow-400/50" />
+                    <li key={index} className="flex items-start text-gray-400 bg-gray-900 p-4 border border-gray-800 hover:border-gray-700 transition-colors">
+                      <span className="inline-block w-1.5 h-1.5 bg-white rounded-full mt-2 mr-3 flex-shrink-0" />
                       <span className="text-sm font-body">{detail}</span>
                     </li>
                   ))}
@@ -939,36 +954,6 @@ export default function ProjectDetail() {
           </div>
         </div>
       </div>
-
-      {/* CTA Section */}
-      <section className="relative h-[40vh] overflow-hidden">
-        <img
-          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&h=600&fit=crop"
-          alt="CTA Background"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white px-4">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-6xl font-light tracking-wide mb-4"
-            >
-              Geleceği Birlikte İnşa Edelim
-            </motion.h2>
-            <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="w-24 h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto"
-            />
-          </div>
-        </div>
-      </section>
     </motion.div>
   );
 }

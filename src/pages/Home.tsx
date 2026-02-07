@@ -1,14 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useRef, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import logo from '../assets/lavlogoname.png';
-
-const heroImages = [
-  'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&h=900&fit=crop',
-  'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&h=900&fit=crop',
-  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&h=900&fit=crop',
-];
 
 const featuredProjects = [
   {
@@ -16,77 +10,95 @@ const featuredProjects = [
     title: 'Marin Loft',
     slug: 'marin-loft',
     image: '/src/assets/marin/marinloft1.png',
+    height: 'tall',
   },
   {
     id: 2,
     title: 'İlker Talu Villası',
     slug: 'ilker-talu-villasi',
     image: '/src/assets/ilker/ilk1.png',
+    height: 'medium',
   },
   {
     id: 3,
     title: 'İmga Portall',
     slug: 'imga-portall',
     image: '/src/assets/imga/imga1.png',
+    height: 'tall',
   },
   {
     id: 4,
     title: 'DKY Business Ofis',
     slug: 'dky-business-ofis',
     image: '/src/assets/dky/dky1.jpeg',
+    height: 'medium',
   },
   {
     id: 5,
     title: 'White Residence',
     slug: 'white-residence',
     image: '/src/assets/white/white1.png',
+    height: 'medium',
   },
   {
     id: 6,
     title: 'Sipahi Konutları',
     slug: 'sipahi-konutlari',
     image: '/src/assets/sipahi/sipahi1.png',
+    height: 'tall',
   },
   {
     id: 7,
     title: 'Doğal Yaşam Villaları',
     slug: 'dogal-yasam-villalari',
     image: '/src/assets/dogal/dogal1.png',
+    height: 'medium',
   },
   {
     id: 8,
     title: 'Onur Sertkaya Villası',
     slug: 'onur-sertkaya-villasi',
     image: '/src/assets/onur/onur1.png',
+    height: 'tall',
   },
   {
     id: 9,
     title: 'Zinar Dağ Evi',
     slug: 'zinar-dag-evi',
     image: '/src/assets/zinar/zin1.png',
+    height: 'medium',
   },
   {
     id: 10,
     title: 'Green Land Luxury Mansion',
     slug: 'green-land-luxury-mansion',
     image: '/src/assets/green/green1.png',
+    height: 'medium',
   },
 ];
 
 export default function Home() {
-  const [currentSlide, setCurrentSlide] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
+  // Mouse wheel horizontal scroll
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
-    }, 5000);
-    return () => clearInterval(timer);
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      if (e.deltaY !== 0) {
+        e.preventDefault();
+        container.scrollLeft += e.deltaY;
+      }
+    };
+
+    container.addEventListener('wheel', handleWheel, { passive: false });
+    return () => container.removeEventListener('wheel', handleWheel);
   }, []);
 
-  const scrollProjects = (direction: 'left' | 'right') => {
+  const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
-      const scrollAmount = 458; // width of card (450) + gap (8)
+      const scrollAmount = 620;
       const newScrollPosition = scrollContainerRef.current.scrollLeft + (direction === 'right' ? scrollAmount : -scrollAmount);
       scrollContainerRef.current.scrollTo({
         left: newScrollPosition,
@@ -101,116 +113,148 @@ export default function Home() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
+      className="bg-black min-h-screen"
     >
-      <div className="relative h-screen overflow-hidden">
-        {heroImages.map((image, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <img
-              src={image}
-              alt={`Hero ${index + 1}`}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
-          </div>
-        ))}
-
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white px-6 max-w-5xl">
-            {/* Logo - Prominent */}
+      {/* Hero Section - Full Screen */}
+      <section className="relative h-screen overflow-hidden -mt-16 pt-16">
+        <img
+          src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=1600&h=900&fit=crop"
+          alt="LAV Mimarlık"
+          className="w-full h-full object-cover grayscale"
+        />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 flex items-center justify-center px-8">
+          <div className="max-w-6xl mx-auto text-center">
+            {/* Logo */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
-              className="mb-8"
+              className="mb-12"
             >
               <img 
                 src={logo} 
                 alt="LAV Mimarlık" 
-                className="h-32 md:h-40 lg:h-48 mx-auto brightness-110 drop-shadow-2xl"
+                className="h-32 md:h-40 lg:h-48 mx-auto brightness-0 invert drop-shadow-2xl"
               />
             </motion.div>
 
-            {/* Main heading - Simple and elegant */}
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
+            {/* Heading */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.3 }}
-              className="text-3xl md:text-5xl lg:text-6xl font-display font-light tracking-wide mb-8"
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-4xl md:text-6xl lg:text-7xl font-display font-light text-white leading-tight"
             >
-              Estetik ve Fonksiyonun Uyumu
+              Estetik ve fonksiyonelliği bir araya getiren mimarlık.
             </motion.h1>
+          </div>
+        </div>
+      </section>
 
-            {/* Divider */}
-            <motion.div
-              initial={{ opacity: 0, scaleX: 0 }}
-              animate={{ opacity: 1, scaleX: 1 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="w-24 h-px bg-yellow-400 mx-auto mb-12"
-            />
+      {/* Horizontal Scrolling Projects */}
+      <section className="py-20 relative bg-black">
+        <div className="max-w-7xl mx-auto px-8 mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-sm uppercase tracking-widest text-gray-500 mb-4 font-body">
+              Öne Çıkan Projeler
+            </h2>
+            <h3 className="text-4xl md:text-5xl font-display font-light text-white">
+              Seçili Çalışmalarımız
+            </h3>
+          </motion.div>
+        </div>
 
-            {/* CTA Button */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.9 }}
-            >
-              <Link
-                to="/projeler"
-                className="group inline-flex items-center gap-3 px-10 py-4 bg-yellow-400 text-gray-900 hover:bg-yellow-500 transition-all duration-300 text-sm tracking-widest font-bold shadow-2xl shadow-yellow-400/40 hover:shadow-yellow-400/60"
-              >
-                <span>PROJELERİ GÖRÜNTÜLE</span>
-                <svg 
-                  className="w-5 h-5 group-hover:translate-x-1 transition-transform" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
+        {/* Left Arrow */}
+        <button
+          onClick={() => scroll('left')}
+          className="hidden md:block absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 bg-white hover:bg-gray-200 transition-colors"
+          aria-label="Önceki projeler"
+        >
+          <ChevronLeft className="text-black" size={24} />
+        </button>
+
+        {/* Right Arrow */}
+        <button
+          onClick={() => scroll('right')}
+          className="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 bg-white hover:bg-gray-200 transition-colors"
+          aria-label="Sonraki projeler"
+        >
+          <ChevronRight className="text-black" size={24} />
+        </button>
+
+        <div 
+          ref={scrollContainerRef}
+          className="overflow-x-scroll overflow-y-hidden scrollbar-hide scroll-smooth"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          <div className="flex gap-2 px-8 pb-4">
+            {featuredProjects.map((project, index) => {
+              const heightClass = 
+                project.height === 'tall' ? 'h-[600px]' :
+                project.height === 'medium' ? 'h-[450px]' :
+                'h-[350px]';
+              
+              return (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.05 }}
+                  viewport={{ once: true }}
+                  className={`flex-shrink-0 w-[500px] md:w-[600px] ${heightClass}`}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-            </motion.div>
+                  <Link
+                    to={`/projeler/${project.slug}`}
+                    className="group block relative w-full h-full overflow-hidden bg-black"
+                  >
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300" />
+                    <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                      <h3 className="text-xl font-display font-light text-white">
+                        {project.title}
+                      </h3>
+                    </div>
+                  </Link>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
 
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-3">
-          {heroImages.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`h-1 rounded-full transition-all ${
-                index === currentSlide ? 'bg-white w-12' : 'bg-white/50 w-8'
-              }`}
-            />
-          ))}
+        {/* Scroll Hint */}
+        <div className="text-center mt-8 px-8">
+          <p className="text-sm text-gray-500 font-body">
+            Kaydırarak daha fazla proje keşfedin →
+          </p>
         </div>
-      </div>
+      </section>
 
-      <section className="py-32 bg-gradient-to-b from-gray-900 via-black to-gray-900 relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div 
+      {/* About Section */}
+      <section className="py-32 px-8 border-t border-gray-900">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-20"
           >
-            <span className="inline-block px-6 py-2 bg-yellow-400/20 text-yellow-400 text-sm font-semibold tracking-widest uppercase mb-8 rounded-full border border-yellow-400/30">
+            <h2 className="text-sm uppercase tracking-widest text-gray-500 mb-8 font-body">
               Hakkımızda
-            </span>
-            <h2 className="text-5xl md:text-7xl font-display font-light text-white mb-8 tracking-tight">
-              Modern Mimarlık Anlayışı
             </h2>
-            <div className="w-32 h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-12" />
-            <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed font-body font-light">
+            <h3 className="text-3xl md:text-5xl font-display font-light text-white mb-12">
+              Modern Mimarlık Anlayışı
+            </h3>
+            <p className="text-xl text-gray-400 max-w-3xl leading-relaxed font-body">
               LAV Mimarlık olarak, estetik ve fonksiyonelliği bir araya getirerek,
               yaşam alanlarınıza değer katan projeler üretiyoruz. Deneyimimiz ve modern
               yaklaşımımızla, hayalinizdeki mekanları gerçeğe dönüştürüyoruz.
@@ -218,7 +262,7 @@ export default function Home() {
           </motion.div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-12 mt-24">
+          <div className="grid grid-cols-3 gap-12 mt-20 pt-12 border-t border-gray-900">
             {[
               { number: '25+', label: 'Yıllık Deneyim' },
               { number: '50+', label: 'Tamamlanan Proje' },
@@ -230,12 +274,12 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="text-center group"
+                className="text-center"
               >
-                <div className="text-6xl md:text-7xl font-display font-light text-yellow-400 mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="text-5xl font-display font-light text-white mb-2">
                   {stat.number}
                 </div>
-                <div className="text-base text-gray-400 uppercase tracking-widest font-body font-medium">
+                <div className="text-sm text-gray-500 uppercase tracking-wider font-body">
                   {stat.label}
                 </div>
               </motion.div>
@@ -244,141 +288,21 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-32 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
-        <div className="w-full">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-20 px-4"
+      {/* View All Projects CTA */}
+      <section className="py-20 px-8 text-center border-t border-gray-900">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <Link
+            to="/projeler"
+            className="inline-block px-8 py-3 bg-white text-black hover:bg-gray-200 transition-colors duration-300 text-sm font-body tracking-wide"
           >
-            <span className="inline-block px-6 py-2 bg-yellow-400/20 text-yellow-400 text-sm font-semibold tracking-widest uppercase mb-8 rounded-full border border-yellow-400/30">
-              Portföy
-            </span>
-            <h2 className="text-5xl md:text-7xl font-display font-light text-white mb-6 tracking-tight">
-              Öne Çıkan Projeler
-            </h2>
-            <div className="w-32 h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto" />
-          </motion.div>
-
-          {/* Scrollable Projects Container */}
-          <div className="relative group">
-            {/* Left Arrow */}
-            <button
-              onClick={() => scrollProjects('left')}
-              className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-gradient-to-br from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 flex items-center justify-center transition-all duration-300 shadow-2xl shadow-yellow-400/30 hover:scale-110"
-              aria-label="Önceki projeler"
-            >
-              <ChevronLeft className="text-gray-900" size={32} />
-            </button>
-
-            {/* Right Arrow */}
-            <button
-              onClick={() => scrollProjects('right')}
-              className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-gradient-to-br from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 flex items-center justify-center transition-all duration-300 shadow-2xl shadow-yellow-400/30 hover:scale-110"
-              aria-label="Sonraki projeler"
-            >
-              <ChevronRight className="text-gray-900" size={32} />
-            </button>
-
-            {/* Gradient Overlays */}
-            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black via-black/50 to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black via-black/50 to-transparent z-10 pointer-events-none" />
-
-            <div 
-              ref={scrollContainerRef}
-              className="overflow-x-auto overflow-y-hidden scrollbar-hide pb-8 scroll-smooth"
-            >
-              <div className="flex gap-8 px-8 md:px-16">
-                {featuredProjects.map((project, index) => (
-                  <motion.div
-                    key={project.id}
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.05 }}
-                    viewport={{ once: true }}
-                    className="flex-shrink-0 w-[400px] md:w-[450px]"
-                  >
-                    <Link
-                      to={`/projeler/${project.slug}`}
-                      className="group/card block relative aspect-[4/3] overflow-hidden bg-gray-900 border-2 border-gray-800 hover:border-yellow-400 transition-all duration-500 shadow-xl hover:shadow-2xl hover:shadow-yellow-400/20"
-                    >
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/card:opacity-100 transition-opacity duration-500">
-                        <h3 className="text-3xl md:text-4xl font-display font-light text-white text-center px-8 transform scale-90 group-hover/card:scale-100 transition-transform duration-500">
-                          {project.title}
-                        </h3>
-                      </div>
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Scroll Indicator */}
-            <div className="flex items-center justify-center gap-3 text-gray-400 text-sm font-body mt-8">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-0.5 bg-yellow-400" />
-                <span>Kaydırarak daha fazla proje keşfedin</span>
-                <div className="w-8 h-0.5 bg-yellow-400" />
-              </div>
-            </div>
-          </div>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="text-center mt-20 px-4"
-          >
-            <Link
-              to="/projeler"
-              className="group inline-flex items-center px-12 py-5 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 hover:from-yellow-500 hover:to-yellow-600 transition-all duration-300 text-sm tracking-widest font-bold shadow-lg shadow-yellow-400/30 hover:shadow-2xl hover:shadow-yellow-400/50 hover:scale-105"
-            >
-              <span className="relative z-10">TÜM PROJELERİ GÖRÜNTÜLE</span>
-              <svg className="w-5 h-5 ml-3 group-hover:translate-x-2 transition-transform relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="relative h-[40vh] overflow-hidden">
-        <img
-          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&h=600&fit=crop"
-          alt="CTA Background"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white px-4">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-6xl font-display font-light tracking-wide mb-6"
-            >
-              Geleceği Birlikte İnşa Edelim
-            </motion.h2>
-            <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="w-32 h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto"
-            />
-          </div>
-        </div>
+            Tüm Projeleri Görüntüle
+          </Link>
+        </motion.div>
       </section>
     </motion.div>
   );
