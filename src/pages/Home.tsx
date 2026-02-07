@@ -1,8 +1,15 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import logo from '../assets/lavlogoname.png';
+
+const heroImages = [
+  'https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=1600&h=900&fit=crop', // Modern architecture
+  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&h=900&fit=crop', // Modern house
+  'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&h=900&fit=crop', // Modern interior
+  'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&h=900&fit=crop', // Modern building
+];
 
 const featuredProjects = [
   {
@@ -79,6 +86,16 @@ const featuredProjects = [
 
 export default function Home() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Auto-rotate hero images
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 5000); // Change every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   // Mouse wheel horizontal scroll
   useEffect(() => {
@@ -117,12 +134,39 @@ export default function Home() {
     >
       {/* Hero Section - Full Screen */}
       <section className="relative h-screen overflow-hidden -mt-16 pt-16">
-        <img
-          src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=1600&h=900&fit=crop"
-          alt="LAV Mimarlık"
-          className="w-full h-full object-cover grayscale"
-        />
+        {/* Background Images with Crossfade */}
+        <div className="absolute inset-0">
+          {heroImages.map((image, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <img
+                src={image}
+                alt={`LAV Mimarlık ${index + 1}`}
+                className="w-full h-full object-cover grayscale"
+              />
+            </div>
+          ))}
+        </div>
         <div className="absolute inset-0 bg-black/60" />
+        
+        {/* Image Indicators */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+          {heroImages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentImageIndex(index)}
+              className={`h-1 transition-all ${
+                index === currentImageIndex ? 'bg-white w-12' : 'bg-white/50 w-8'
+              }`}
+              aria-label={`Resim ${index + 1}`}
+            />
+          ))}
+        </div>
+
         <div className="absolute inset-0 flex items-center justify-center px-8">
           <div className="max-w-6xl mx-auto text-center">
             {/* Logo */}
