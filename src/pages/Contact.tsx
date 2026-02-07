@@ -156,7 +156,7 @@ export default function Contact() {
               {/* Logo */}
               <div className="flex justify-center mb-8">
                 <img 
-                  src="/src/assets/lavlogoname.png" 
+                  src="/assets/lavlogoname.png" 
                   alt="LAV Mimarlık" 
                   className="h-12 brightness-0 invert"
                 />
@@ -280,3 +280,4 @@ export default function Contact() {
     </motion.div>
   );
 }
+

@@ -36,13 +36,13 @@ const projectsData: Record<string, ProjectData> = {
       'Peyzaj düzenlemesi'
     ],
     images: [
-      '/src/assets/marin/marinloft1.png',
-      '/src/assets/marin/marinloft2.png',
-      '/src/assets/marin/marinloft3.png',
-      '/src/assets/marin/marinloft4.png',
-      '/src/assets/marin/marinloft5.png',
-      '/src/assets/marin/marinloft6.png',
-      '/src/assets/marin/marinloft7.png'
+      '/assets/marin/marinloft1.png',
+      '/assets/marin/marinloft2.png',
+      '/assets/marin/marinloft3.png',
+      '/assets/marin/marinloft4.png',
+      '/assets/marin/marinloft5.png',
+      '/assets/marin/marinloft6.png',
+      '/assets/marin/marinloft7.png'
     ],
     units: '120 Konut',
     status: 'Proje Aşamasında'
@@ -64,15 +64,15 @@ const projectsData: Record<string, ProjectData> = {
       'Yerel malzeme kullanımı'
     ],
     images: [
-      '/src/assets/hatay kumlu/hatay1.png',
-      '/src/assets/hatay kumlu/hatay2.png',
-      '/src/assets/hatay kumlu/hatay3.png',
-      '/src/assets/hatay kumlu/hatay4.png',
-      '/src/assets/hatay kumlu/hatay5.png',
-      '/src/assets/hatay kumlu/hatay6.png',
-      '/src/assets/hatay kumlu/hatay7.png',
-      '/src/assets/hatay kumlu/hatay8.png',
-      '/src/assets/hatay kumlu/hatay9.png'
+      '/assets/hatay kumlu/hatay1.png',
+      '/assets/hatay kumlu/hatay2.png',
+      '/assets/hatay kumlu/hatay3.png',
+      '/assets/hatay kumlu/hatay4.png',
+      '/assets/hatay kumlu/hatay5.png',
+      '/assets/hatay kumlu/hatay6.png',
+      '/assets/hatay kumlu/hatay7.png',
+      '/assets/hatay kumlu/hatay8.png',
+      '/assets/hatay kumlu/hatay9.png'
     ],
     units: '299 Konut',
     status: 'Yapım Aşamasında'
@@ -95,14 +95,14 @@ const projectsData: Record<string, ProjectData> = {
       'Peyzaj düzenlemesi'
     ],
     images: [
-      '/src/assets/imga/imga1.png',
-      '/src/assets/imga/imga2.png',
-      '/src/assets/imga/imga3.png',
-      '/src/assets/imga/imga4.png',
-      '/src/assets/imga/imga5.png',
-      '/src/assets/imga/imga6.png',
-      '/src/assets/imga/imga7.png',
-      '/src/assets/imga/imga8.png'
+      '/assets/imga/imga1.png',
+      '/assets/imga/imga2.png',
+      '/assets/imga/imga3.png',
+      '/assets/imga/imga4.png',
+      '/assets/imga/imga5.png',
+      '/assets/imga/imga6.png',
+      '/assets/imga/imga7.png',
+      '/assets/imga/imga8.png'
     ],
     status: 'Tamamlandı'
   },
@@ -123,12 +123,12 @@ const projectsData: Record<string, ProjectData> = {
       'Enerji verimliliği'
     ],
     images: [
-      '/src/assets/dky/dky1.jpeg',
-      '/src/assets/dky/dky2.png',
-      '/src/assets/dky/dky3.png',
-      '/src/assets/dky/dky4.png',
-      '/src/assets/dky/dky5.png',
-      '/src/assets/dky/dky6.png'
+      '/assets/dky/dky1.jpeg',
+      '/assets/dky/dky2.png',
+      '/assets/dky/dky3.png',
+      '/assets/dky/dky4.png',
+      '/assets/dky/dky5.png',
+      '/assets/dky/dky6.png'
     ],
     status: 'Tamamlandı'
   },
@@ -149,10 +149,10 @@ const projectsData: Record<string, ProjectData> = {
       'Peyzaj düzenlemesi'
     ],
     images: [
-      '/src/assets/white/white1.png',
-      '/src/assets/white/white2.png',
-      '/src/assets/white/white3.png',
-      '/src/assets/white/white4.png'
+      '/assets/white/white1.png',
+      '/assets/white/white2.png',
+      '/assets/white/white3.png',
+      '/assets/white/white4.png'
     ],
     units: '48 Konut',
     status: 'Tamamlandı'
@@ -175,9 +175,9 @@ const projectsData: Record<string, ProjectData> = {
       'Kapalı otopark'
     ],
     images: [
-      '/src/assets/sipahi/sipahi1.png',
-      '/src/assets/sipahi/sipahi2.png',
-      '/src/assets/sipahi/sipahi3.png'
+      '/assets/sipahi/sipahi1.png',
+      '/assets/sipahi/sipahi2.png',
+      '/assets/sipahi/sipahi3.png'
     ],
     units: '36 Konut',
     status: 'Tamamlandı'
@@ -199,9 +199,9 @@ const projectsData: Record<string, ProjectData> = {
       'Manzara odaklı tasarım'
     ],
     images: [
-      '/src/assets/ozhasar/oz1.png',
-      '/src/assets/ozhasar/oz2.png',
-      '/src/assets/ozhasar/oz3.png'
+      '/assets/ozhasar/oz1.png',
+      '/assets/ozhasar/oz2.png',
+      '/assets/ozhasar/oz3.png'
     ],
     status: 'Tamamlandı'
   },
@@ -223,9 +223,9 @@ const projectsData: Record<string, ProjectData> = {
       'Özel plaj erişimi'
     ],
     images: [
-      '/src/assets/murat/murat1.png',
-      '/src/assets/murat/murat2.png',
-      '/src/assets/murat/murat3.png'
+      '/assets/murat/murat1.png',
+      '/assets/murat/murat2.png',
+      '/assets/murat/murat3.png'
     ],
     status: 'Tamamlandı'
   },
@@ -246,9 +246,9 @@ const projectsData: Record<string, ProjectData> = {
       'Akıllı ev sistemleri'
     ],
     images: [
-      '/src/assets/onur/onur1.png',
-      '/src/assets/onur/onur2.png',
-      '/src/assets/onur/onur3.png'
+      '/assets/onur/onur1.png',
+      '/assets/onur/onur2.png',
+      '/assets/onur/onur3.png'
     ],
     status: 'Tamamlandı'
   },
@@ -270,9 +270,9 @@ const projectsData: Record<string, ProjectData> = {
       'Peyzaj düzenlemesi'
     ],
     images: [
-      '/src/assets/kent/kent1.png',
-      '/src/assets/kent/kent2.png',
-      '/src/assets/kent/kent3.png'
+      '/assets/kent/kent1.png',
+      '/assets/kent/kent2.png',
+      '/assets/kent/kent3.png'
     ],
     units: '130 Konut',
     status: 'Tamamlandı'
@@ -295,9 +295,9 @@ const projectsData: Record<string, ProjectData> = {
       'Peyzaj düzenlemesi'
     ],
     images: [
-      '/src/assets/dogal/dogal1.png',
-      '/src/assets/dogal/dogal2.png',
-      '/src/assets/dogal/dogal3.png'
+      '/assets/dogal/dogal1.png',
+      '/assets/dogal/dogal2.png',
+      '/assets/dogal/dogal3.png'
     ],
     units: '12 Villa',
     status: 'Tamamlandı'
@@ -320,9 +320,9 @@ const projectsData: Record<string, ProjectData> = {
       'Lüks iç mekan tasarımı'
     ],
     images: [
-      '/src/assets/cınar/cınar1.png',
-      '/src/assets/cınar/cınar2.png',
-      '/src/assets/cınar/cınar3.png'
+      '/assets/cınar/cınar1.png',
+      '/assets/cınar/cınar2.png',
+      '/assets/cınar/cınar3.png'
     ],
     status: 'Tamamlandı'
   },
@@ -344,13 +344,13 @@ const projectsData: Record<string, ProjectData> = {
       'Özel mobilya tasarımı'
     ],
     images: [
-      '/src/assets/ofis/ofis5.png',
-      '/src/assets/ofis/ofis.png',
-      '/src/assets/ofis/ofis2.png',
-      '/src/assets/ofis/ofis3.png',
-      '/src/assets/ofis/ofis4.png',
-      '/src/assets/ofis/ofis6.png',
-      '/src/assets/ofis/ofis7.png'
+      '/assets/ofis/ofis5.png',
+      '/assets/ofis/ofis.png',
+      '/assets/ofis/ofis2.png',
+      '/assets/ofis/ofis3.png',
+      '/assets/ofis/ofis4.png',
+      '/assets/ofis/ofis6.png',
+      '/assets/ofis/ofis7.png'
     ],
     status: 'Tamamlandı'
   },
@@ -372,9 +372,9 @@ const projectsData: Record<string, ProjectData> = {
       'Modern villa tasarımı'
     ],
     images: [
-      '/src/assets/ilker/ilk1.png',
-      '/src/assets/ilker/ilk2.png',
-      '/src/assets/ilker/ilk3.png'
+      '/assets/ilker/ilk1.png',
+      '/assets/ilker/ilk2.png',
+      '/assets/ilker/ilk3.png'
     ],
     status: 'Tamamlandı'
   },
@@ -396,9 +396,9 @@ const projectsData: Record<string, ProjectData> = {
       'Dekorasyon danışmanlığı'
     ],
     images: [
-      '/src/assets/villa/vil1.png',
-      '/src/assets/villa/vil2.png',
-      '/src/assets/villa/vil3.png'
+      '/assets/villa/vil1.png',
+      '/assets/villa/vil2.png',
+      '/assets/villa/vil3.png'
     ],
     status: 'Tamamlandı'
   },
@@ -421,9 +421,9 @@ const projectsData: Record<string, ProjectData> = {
       'Kapalı otopark'
     ],
     images: [
-      '/src/assets/felluce/fel1.png',
-      '/src/assets/felluce/fel2.png',
-      '/src/assets/felluce/fel3.png'
+      '/assets/felluce/fel1.png',
+      '/assets/felluce/fel2.png',
+      '/assets/felluce/fel3.png'
     ],
     status: 'Tamamlandı'
   },
@@ -446,9 +446,9 @@ const projectsData: Record<string, ProjectData> = {
       'Bahçe düzenlemesi'
     ],
     images: [
-      '/src/assets/aydin/aydin1.png',
-      '/src/assets/aydin/aydin2.png',
-      '/src/assets/aydin/aydin3.png'
+      '/assets/aydin/aydin1.png',
+      '/assets/aydin/aydin2.png',
+      '/assets/aydin/aydin3.png'
     ],
     status: 'Tamamlandı'
   },
@@ -471,9 +471,9 @@ const projectsData: Record<string, ProjectData> = {
       'Kapalı otopark'
     ],
     images: [
-      '/src/assets/felluce2/felluce1.png',
-      '/src/assets/felluce2/felluce2.png',
-      '/src/assets/felluce2/felluce3.png'
+      '/assets/felluce2/felluce1.png',
+      '/assets/felluce2/felluce2.png',
+      '/assets/felluce2/felluce3.png'
     ],
     status: 'Tamamlandı'
   },
@@ -496,8 +496,8 @@ const projectsData: Record<string, ProjectData> = {
       'Bahçe düzenlemesi'
     ],
     images: [
-      '/src/assets/mehmetsay/mehmet1.png',
-      '/src/assets/mehmetsay/mehmet2.png'
+      '/assets/mehmetsay/mehmet1.png',
+      '/assets/mehmetsay/mehmet2.png'
     ],
     status: 'Tamamlandı'
   },
@@ -520,9 +520,9 @@ const projectsData: Record<string, ProjectData> = {
       'Aydınlatma tasarımı'
     ],
     images: [
-      '/src/assets/ic/ic1.png',
-      '/src/assets/ic/ic2.png',
-      '/src/assets/ic/ic3.png'
+      '/assets/ic/ic1.png',
+      '/assets/ic/ic2.png',
+      '/assets/ic/ic3.png'
     ],
     status: 'Tamamlandı'
   },
@@ -545,10 +545,10 @@ const projectsData: Record<string, ProjectData> = {
       'Aydınlatma tasarımı'
     ],
     images: [
-      '/src/assets/off/off1.png',
-      '/src/assets/off/off2.png',
-      '/src/assets/off/off3.png',
-      '/src/assets/off/off5.png'
+      '/assets/off/off1.png',
+      '/assets/off/off2.png',
+      '/assets/off/off3.png',
+      '/assets/off/off5.png'
     ],
     status: 'Tamamlandı'
   },
@@ -571,12 +571,12 @@ const projectsData: Record<string, ProjectData> = {
       'Kaliteli malzeme kullanımı'
     ],
     images: [
-      '/src/assets/bahar/bahar1.png',
-      '/src/assets/bahar/bahar2.png',
-      '/src/assets/bahar/bahar3.png',
-      '/src/assets/bahar/bahar4.png',
-      '/src/assets/bahar/bahar5.png',
-      '/src/assets/bahar/bahar6.png'
+      '/assets/bahar/bahar1.png',
+      '/assets/bahar/bahar2.png',
+      '/assets/bahar/bahar3.png',
+      '/assets/bahar/bahar4.png',
+      '/assets/bahar/bahar5.png',
+      '/assets/bahar/bahar6.png'
     ],
     status: 'Tamamlandı'
   },
@@ -599,9 +599,9 @@ const projectsData: Record<string, ProjectData> = {
       'Modern villa konsepti'
     ],
     images: [
-      '/src/assets/zinar/zin1.png',
-      '/src/assets/zinar/zin2.png',
-      '/src/assets/zinar/zin3.png'
+      '/assets/zinar/zin1.png',
+      '/assets/zinar/zin2.png',
+      '/assets/zinar/zin3.png'
     ],
     status: 'Tamamlandı'
   },
@@ -624,11 +624,11 @@ const projectsData: Record<string, ProjectData> = {
       'Kaliteli malzeme kullanımı'
     ],
     images: [
-      '/src/assets/servet/servet1.png',
-      '/src/assets/servet/servet2.png',
-      '/src/assets/servet/servet3.png',
-      '/src/assets/servet/servet4.png',
-      '/src/assets/servet/servet5.png'
+      '/assets/servet/servet1.png',
+      '/assets/servet/servet2.png',
+      '/assets/servet/servet3.png',
+      '/assets/servet/servet4.png',
+      '/assets/servet/servet5.png'
     ],
     status: 'Tamamlandı'
   },
@@ -651,7 +651,7 @@ const projectsData: Record<string, ProjectData> = {
       'Güvenlik sistemleri'
     ],
     images: [
-      '/src/assets/ina/ina.jpeg'
+      '/assets/ina/ina.jpeg'
     ],
     units: '72 Konut',
     status: 'Tamamlandı'
@@ -675,11 +675,11 @@ const projectsData: Record<string, ProjectData> = {
       'Peyzaj düzenlemesi'
     ],
     images: [
-      '/src/assets/tastekin/tas1.png',
-      '/src/assets/tastekin/tas2.png',
-      '/src/assets/tastekin/tas3.png',
-      '/src/assets/tastekin/tas4.png',
-      '/src/assets/tastekin/tas5.png'
+      '/assets/tastekin/tas1.png',
+      '/assets/tastekin/tas2.png',
+      '/assets/tastekin/tas3.png',
+      '/assets/tastekin/tas4.png',
+      '/assets/tastekin/tas5.png'
     ],
     status: 'Tamamlandı'
   },
@@ -703,9 +703,9 @@ const projectsData: Record<string, ProjectData> = {
       'Toplam 8.550 m² inşaat alanı'
     ],
     images: [
-      '/src/assets/erbil/er1.png',
-      '/src/assets/erbil/er2.png',
-      '/src/assets/erbil/er3.png'
+      '/assets/erbil/er1.png',
+      '/assets/erbil/er2.png',
+      '/assets/erbil/er3.png'
     ],
     status: 'Tamamlandı'
   },
@@ -728,12 +728,12 @@ const projectsData: Record<string, ProjectData> = {
       'Güvenlik sistemleri'
     ],
     images: [
-      '/src/assets/mimoza/mim1.png',
-      '/src/assets/mimoza/mim2.png',
-      '/src/assets/mimoza/mim3.png',
-      '/src/assets/mimoza/mim4.png',
-      '/src/assets/mimoza/mim5.png',
-      '/src/assets/mimoza/mim6.png'
+      '/assets/mimoza/mim1.png',
+      '/assets/mimoza/mim2.png',
+      '/assets/mimoza/mim3.png',
+      '/assets/mimoza/mim4.png',
+      '/assets/mimoza/mim5.png',
+      '/assets/mimoza/mim6.png'
     ],
     units: '18 Konut',
     status: 'Tamamlandı'
@@ -759,9 +759,9 @@ const projectsData: Record<string, ProjectData> = {
       'Modern villa tasarımı'
     ],
     images: [
-      '/src/assets/green/green1.png',
-      '/src/assets/green/green2.png',
-      '/src/assets/green/green3.png'
+      '/assets/green/green1.png',
+      '/assets/green/green2.png',
+      '/assets/green/green3.png'
     ],
     status: 'Tamamlandı'
   },
@@ -784,9 +784,9 @@ const projectsData: Record<string, ProjectData> = {
       'Sürdürülebilir çözümler'
     ],
     images: [
-      '/src/assets/cınar/cınar1.png',
-      '/src/assets/cınar/cınar2.png',
-      '/src/assets/cınar/cınar3.png'
+      '/assets/cınar/cınar1.png',
+      '/assets/cınar/cınar2.png',
+      '/assets/cınar/cınar3.png'
     ],
     status: 'Tamamlandı'
   }
@@ -957,3 +957,4 @@ export default function ProjectDetail() {
     </motion.div>
   );
 }
+
