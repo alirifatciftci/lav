@@ -19,9 +19,9 @@ const featuredProjects = [
   },
   {
     id: 2,
-    title: 'Hatay Köy Evleri',
-    slug: 'hatay-koy-evleri',
-    image: '/src/assets/hatay kumlu/hatay2.png',
+    title: 'İlker Talu Villası',
+    slug: 'ilker-talu-villasi',
+    image: '/src/assets/ilker/ilk1.png',
   },
   {
     id: 3,
@@ -84,14 +84,6 @@ export default function Home() {
     return () => clearInterval(timer);
   }, []);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % heroImages.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length);
-  };
-
   const scrollProjects = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
       const scrollAmount = 458; // width of card (450) + gap (8)
@@ -128,68 +120,62 @@ export default function Home() {
         ))}
 
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white px-4 max-w-5xl">
+          <div className="text-center text-white px-6 max-w-5xl">
+            {/* Logo - Prominent */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 1, ease: "easeOut" }}
               className="mb-8"
             >
               <img 
                 src={logo} 
                 alt="LAV Mimarlık" 
-                className="h-32 md:h-40 mx-auto brightness-110 drop-shadow-2xl"
+                className="h-32 md:h-40 lg:h-48 mx-auto brightness-110 drop-shadow-2xl"
               />
             </motion.div>
+
+            {/* Main heading - Simple and elegant */}
             <motion.h1 
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-display font-light tracking-wide mb-6 leading-tight"
+              transition={{ duration: 1, delay: 0.3 }}
+              className="text-3xl md:text-5xl lg:text-6xl font-display font-light tracking-wide mb-8"
             >
               Estetik ve Fonksiyonun Uyumu
             </motion.h1>
+
+            {/* Divider */}
             <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="w-32 h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto mb-6"
+              initial={{ opacity: 0, scaleX: 0 }}
+              animate={{ opacity: 1, scaleX: 1 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="w-24 h-px bg-yellow-400 mx-auto mb-12"
             />
-            <motion.p 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="text-lg md:text-xl font-body font-light tracking-widest text-white/90 mb-10"
-            >
-              Proje | Uygulama | Danışmanlık
-            </motion.p>
+
+            {/* CTA Button */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
+              transition={{ duration: 1, delay: 0.9 }}
             >
               <Link
                 to="/projeler"
-                className="inline-block px-12 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 hover:from-yellow-500 hover:to-yellow-600 transition-all duration-300 text-sm tracking-widest font-semibold shadow-2xl shadow-yellow-400/30 hover:shadow-yellow-400/50 transform hover:scale-105"
+                className="group inline-flex items-center gap-3 px-10 py-4 bg-yellow-400 text-gray-900 hover:bg-yellow-500 transition-all duration-300 text-sm tracking-widest font-bold shadow-2xl shadow-yellow-400/40 hover:shadow-yellow-400/60"
               >
-                PROJELERİ KEŞFET
+                <span>PROJELERİ GÖRÜNTÜLE</span>
+                <svg 
+                  className="w-5 h-5 group-hover:translate-x-1 transition-transform" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
               </Link>
             </motion.div>
           </div>
         </div>
-
-        <button
-          onClick={prevSlide}
-          className="absolute left-8 top-1/2 -translate-y-1/2 p-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-full transition-all border border-white/30"
-        >
-          <ChevronLeft className="text-white" size={32} />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute right-8 top-1/2 -translate-y-1/2 p-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-full transition-all border border-white/30"
-        >
-          <ChevronRight className="text-white" size={32} />
-        </button>
 
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-3">
           {heroImages.map((_, index) => (

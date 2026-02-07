@@ -914,41 +914,23 @@ export default function ProjectDetail() {
               </div>
 
               <div className="border-t border-gray-700 pt-8 mb-10">
-                <h2 className="text-2xl font-light text-white mb-6">
+                <h2 className="text-2xl font-light text-white mb-6 font-display">
                   Proje Hakkında
                 </h2>
-                <p className="text-gray-300 leading-relaxed text-base mb-8">
+                <p className="text-gray-300 leading-relaxed text-base font-body">
                   {project.description}
                 </p>
-
-                {project.units && (
-                  <div className="grid grid-cols-1 gap-6 mb-8 bg-gray-800/50 p-6 rounded-lg border border-gray-700">
-                    <div>
-                      <div className="text-sm text-gray-400 mb-2 font-medium">Birim Sayısı</div>
-                      <div className="text-yellow-400 font-semibold text-lg">{project.units}</div>
-                    </div>
-                  </div>
-                )}
-
-                {project.status && !project.units && (
-                  <div className="grid grid-cols-1 gap-6 mb-8 bg-gray-800/50 p-6 rounded-lg border border-gray-700">
-                    <div>
-                      <div className="text-sm text-gray-400 mb-2 font-medium">Durum</div>
-                      <div className="text-yellow-400 font-semibold text-lg">{project.status}</div>
-                    </div>
-                  </div>
-                )}
               </div>
 
               <div className="border-t border-gray-700 pt-8">
-                <h3 className="text-xl font-light text-white mb-6">
+                <h3 className="text-xl font-light text-white mb-6 font-display">
                   Özellikler
                 </h3>
-                <ul className="space-y-3">
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {project.details.map((detail: string, index: number) => (
-                    <li key={index} className="flex items-start text-gray-300">
-                      <span className="inline-block w-2 h-2 bg-yellow-400 rounded-full mt-2 mr-4 flex-shrink-0 shadow-lg shadow-yellow-400/50" />
-                      <span className="text-base">{detail}</span>
+                    <li key={index} className="flex items-start text-gray-300 bg-gray-800/30 p-4 border border-gray-700 hover:border-yellow-400/50 transition-colors">
+                      <span className="inline-block w-2 h-2 bg-yellow-400 rounded-full mt-2 mr-3 flex-shrink-0 shadow-lg shadow-yellow-400/50" />
+                      <span className="text-sm font-body">{detail}</span>
                     </li>
                   ))}
                 </ul>
