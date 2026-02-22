@@ -158,7 +158,7 @@ export default function Contact() {
                 <img 
                   src="/assets/lavlogoname.png" 
                   alt="LAV Mimarlık" 
-                  className="h-12 brightness-0 invert"
+                  className="h-12"
                 />
               </div>
 

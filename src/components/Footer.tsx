@@ -6,38 +6,80 @@ import logo from '../assets/lavlogoname.png';
 export default function Footer() {
   return (
     <>
-      {/* CTA Banner */}
-      <section className="relative h-[40vh] overflow-hidden">
+      {/* CTA Banner with Enhanced Design */}
+      <section className="relative h-[50vh] overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=1600&h=600&fit=crop"
           alt="Geleceği Birlikte İnşa Edelim"
           className="w-full h-full object-cover grayscale"
         />
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/70" />
+        
+        {/* Content Overlay */}
         <div className="absolute inset-0 flex items-center justify-center px-8">
-          <div className="text-center">
+          <div className="max-w-5xl mx-auto text-center">
+            {/* Top decorative line */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+              className="w-32 h-px bg-white/50 mx-auto mb-8"
+            />
+
+            {/* Main Heading */}
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-display font-light text-white mb-4"
+              className="text-5xl md:text-6xl font-display font-light text-white mb-6"
             >
               Geleceği Birlikte İnşa Edelim
             </motion.h2>
-            <motion.div
+
+            {/* Subtitle */}
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
+              className="text-lg text-gray-300 font-body mb-8 max-w-2xl mx-auto"
+            >
+              Hayalinizdeki projeyi gerçeğe dönüştürmek için bizimle iletişime geçin. 
+              Uzman ekibimiz size özel çözümler sunmaya hazır.
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             >
               <a
                 href="/iletisim"
-                className="inline-block px-8 py-3 bg-white text-black hover:bg-gray-200 transition-colors duration-300 text-sm font-body tracking-wide"
+                className="inline-block px-10 py-4 bg-white text-black hover:bg-gray-900 hover:text-white border-2 border-white transition-all duration-300 text-sm font-body tracking-widest uppercase"
               >
                 İletişime Geçin
               </a>
+              <a
+                href="/projeler"
+                className="inline-block px-10 py-4 bg-transparent text-white hover:bg-white hover:text-black border-2 border-white transition-all duration-300 text-sm font-body tracking-widest uppercase"
+              >
+                Projeleri İncele
+              </a>
             </motion.div>
+
+            {/* Bottom decorative line */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              transition={{ duration: 1, delay: 0.6 }}
+              viewport={{ once: true }}
+              className="w-32 h-px bg-white/50 mx-auto mt-8"
+            />
           </div>
         </div>
       </section>
@@ -51,7 +93,7 @@ export default function Footer() {
             <img 
               src={logo} 
               alt="LAV Mimarlık" 
-              className="h-10 mb-6 brightness-0 invert"
+              className="h-10 mb-6"
             />
             <p className="text-gray-400 font-body text-sm leading-relaxed mb-6">
               Estetik ve fonksiyonelliği bir araya getiren mimarlık.

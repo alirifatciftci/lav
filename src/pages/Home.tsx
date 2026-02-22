@@ -1,316 +1,305 @@
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { useRef, useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import logo from '../assets/lavlogoname.png';
-
-const heroImages = [
-  'https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=1600&h=900&fit=crop', // Modern architecture
-  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&h=900&fit=crop', // Modern house
-  'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&h=900&fit=crop', // Modern interior
-  'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&h=900&fit=crop', // Modern building
-];
 
 const featuredProjects = [
   {
     id: 1,
     title: 'Marin Loft',
+    location: 'Kartal, İstanbul',
     slug: 'marin-loft',
     image: '/assets/marin/marinloft1.png',
-    height: 'tall',
   },
   {
     id: 2,
-    title: 'İlker Talu Villası',
-    slug: 'ilker-talu-villasi',
-    image: '/assets/ilker/ilk1.png',
-    height: 'medium',
+    title: 'İmga Portall',
+    location: 'Pendik, İstanbul',
+    slug: 'imga-portall',
+    image: '/assets/imga/imga1.png',
   },
   {
     id: 3,
-    title: 'İmga Portall',
-    slug: 'imga-portall',
-    image: '/assets/imga/imga1.png',
-    height: 'tall',
+    title: 'White Residence',
+    location: 'Kartal, İstanbul',
+    slug: 'white-residence',
+    image: '/assets/white/white1.png',
   },
   {
     id: 4,
-    title: 'DKY Business Ofis',
-    slug: 'dky-business-ofis',
-    image: '/assets/dky/dky1.jpeg',
-    height: 'medium',
+    title: 'Sipahi Konutları',
+    location: 'Kuşadası, Aydın',
+    slug: 'sipahi-konutlari',
+    image: '/assets/sipahi/sipahi1.png',
   },
   {
     id: 5,
-    title: 'White Residence',
-    slug: 'white-residence',
-    image: '/assets/white/white1.png',
-    height: 'medium',
+    title: 'Doğal Yaşam Villaları',
+    location: 'Çiftlikköy, Yalova',
+    slug: 'dogal-yasam-villalari',
+    image: '/assets/dogal/dogal1.png',
   },
   {
     id: 6,
-    title: 'Sipahi Konutları',
-    slug: 'sipahi-konutlari',
-    image: '/assets/sipahi/sipahi1.png',
-    height: 'tall',
-  },
-  {
-    id: 7,
-    title: 'Doğal Yaşam Villaları',
-    slug: 'dogal-yasam-villalari',
-    image: '/assets/dogal/dogal1.png',
-    height: 'medium',
-  },
-  {
-    id: 8,
-    title: 'Onur Sertkaya Villası',
-    slug: 'onur-sertkaya-villasi',
-    image: '/assets/onur/onur1.png',
-    height: 'tall',
-  },
-  {
-    id: 9,
-    title: 'Zinar Dağ Evi',
-    slug: 'zinar-dag-evi',
-    image: '/assets/zinar/zin1.png',
-    height: 'medium',
-  },
-  {
-    id: 10,
     title: 'Green Land Luxury Mansion',
+    location: 'Erbil, Irak',
     slug: 'green-land-luxury-mansion',
     image: '/assets/green/green1.png',
-    height: 'medium',
   },
 ];
 
 export default function Home() {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [showButtons, setShowButtons] = useState(true);
+  const pages = ['hero', 'projects'];
 
-  // Auto-rotate hero images
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
-    }, 5000); // Change every 5 seconds
+    // Sadece bir kez, 6 saniye sonra projeler sayfasına geç
+    if (currentPage === 0) {
+      const timer = setTimeout(() => {
+        setCurrentPage(1);
+      }, 6000);
 
-    return () => clearInterval(interval);
-  }, []);
+      return () => clearTimeout(timer);
+    }
+  }, [currentPage]);
 
-  // Mouse wheel horizontal scroll
   useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    const handleWheel = (e: WheelEvent) => {
-      if (e.deltaY !== 0) {
-        e.preventDefault();
-        container.scrollLeft += e.deltaY;
+    // Scroll pozisyonuna göre butonları göster/gizle
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      
+      // Sadece ilk ekranda (hero alanında) butonları göster
+      if (scrollPosition < windowHeight * 0.9) {
+        setShowButtons(true);
+      } else {
+        setShowButtons(false);
       }
     };
 
-    container.addEventListener('wheel', handleWheel, { passive: false });
-    return () => container.removeEventListener('wheel', handleWheel);
+    handleScroll(); // İlk yüklemede kontrol et
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scroll = (direction: 'left' | 'right') => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = 620;
-      const newScrollPosition = scrollContainerRef.current.scrollLeft + (direction === 'right' ? scrollAmount : -scrollAmount);
-      scrollContainerRef.current.scrollTo({
-        left: newScrollPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
-
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-      className="bg-black min-h-screen"
-    >
-      {/* Hero Section - Full Screen */}
-      <section className="relative h-screen overflow-hidden -mt-16 pt-16">
-        {/* Background Images with Crossfade */}
-        <div className="absolute inset-0">
-          {heroImages.map((image, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0 transition-opacity duration-1000 ${
-                index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-              }`}
-            >
+    <div className="bg-black min-h-screen">
+      {/* Left Arrow - Go to Hero */}
+      <AnimatePresence>
+        {currentPage === 1 && showButtons && (
+          <motion.button
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.5 }}
+            onClick={() => setCurrentPage(0)}
+            className="fixed left-8 top-1/2 -translate-y-1/2 z-20 p-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all duration-300 group"
+            aria-label="Önceki sayfa"
+          >
+            <ChevronLeft className="w-8 h-8 text-white" />
+          </motion.button>
+        )}
+      </AnimatePresence>
+
+      {/* Right Arrow - Go to Projects */}
+      <AnimatePresence>
+        {currentPage === 0 && showButtons && (
+          <motion.button
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 20 }}
+            transition={{ duration: 0.5 }}
+            onClick={() => setCurrentPage(1)}
+            className="fixed right-8 top-1/2 -translate-y-1/2 z-20 p-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all duration-300 group"
+            aria-label="Sonraki sayfa"
+          >
+            <ChevronRight className="w-8 h-8 text-white" />
+          </motion.button>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence mode="wait">
+        {currentPage === 0 && (
+          <motion.div
+            key="hero"
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -100 }}
+            transition={{ duration: 0.8 }}
+          >
+            {/* Hero Page */}
+            <section className="relative h-screen overflow-hidden">
               <img
-                src={image}
-                alt={`LAV Mimarlık ${index + 1}`}
+                src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=1600&h=900&fit=crop"
+                alt="LAV Mimarlık"
                 className="w-full h-full object-cover grayscale"
               />
-            </div>
-          ))}
-        </div>
-        <div className="absolute inset-0 bg-black/60" />
-        
-        {/* Image Indicators */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-          {heroImages.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentImageIndex(index)}
-              className={`h-1 transition-all ${
-                index === currentImageIndex ? 'bg-white w-12' : 'bg-white/50 w-8'
-              }`}
-              aria-label={`Resim ${index + 1}`}
-            />
-          ))}
-        </div>
+              <div className="absolute inset-0 bg-black/60" />
 
-        <div className="absolute inset-0 flex items-center justify-center px-8">
-          <div className="max-w-6xl mx-auto text-center">
-            {/* Logo */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              className="mb-12"
-            >
-              <img 
-                src={logo} 
-                alt="LAV Mimarlık" 
-                className="h-32 md:h-40 lg:h-48 mx-auto brightness-0 invert drop-shadow-2xl"
-              />
-            </motion.div>
+              <div className="absolute inset-0 flex items-center justify-center px-8">
+                <div className="max-w-6xl mx-auto text-center">
+                  {/* Logo */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                    className="mb-12"
+                  >
+                    <img 
+                      src={logo} 
+                      alt="LAV Mimarlık" 
+                      className="h-40 md:h-52 lg:h-64 mx-auto drop-shadow-2xl"
+                    />
+                  </motion.div>
 
-            {/* Heading */}
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-display font-light text-white leading-tight"
-            >
-              Estetik ve fonksiyonelliği bir araya getiren mimarlık.
-            </motion.h1>
-          </div>
-        </div>
-      </section>
+                  {/* Heading */}
+                  <motion.h1
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                    className="text-4xl md:text-6xl lg:text-7xl font-display font-light text-white leading-tight"
+                  >
+                    Estetik ve fonksiyonelliği bir araya getiren mimarlık.
+                  </motion.h1>
+                </div>
+              </div>
 
-      {/* Horizontal Scrolling Projects */}
-      <section className="py-20 relative bg-black">
-        <div className="max-w-7xl mx-auto px-8 mb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-sm uppercase tracking-widest text-gray-500 mb-4 font-body">
-              Öne Çıkan Projeler
-            </h2>
-            <h3 className="text-4xl md:text-5xl font-display font-light text-white">
-              Seçili Çalışmalarımız
-            </h3>
+              {/* Page Indicators */}
+              <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                {pages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentPage(index)}
+                    className={`h-1 transition-all ${
+                      index === currentPage ? 'bg-white w-12' : 'bg-white/50 w-8'
+                    }`}
+                    aria-label={`Sayfa ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </section>
           </motion.div>
-        </div>
+        )}
 
-        {/* Left Arrow */}
-        <button
-          onClick={() => scroll('left')}
-          className="hidden md:block absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 bg-white hover:bg-gray-200 transition-colors"
-          aria-label="Önceki projeler"
-        >
-          <ChevronLeft className="text-black" size={24} />
-        </button>
-
-        {/* Right Arrow */}
-        <button
-          onClick={() => scroll('right')}
-          className="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 bg-white hover:bg-gray-200 transition-colors"
-          aria-label="Sonraki projeler"
-        >
-          <ChevronRight className="text-black" size={24} />
-        </button>
-
-        <div 
-          ref={scrollContainerRef}
-          className="overflow-x-scroll overflow-y-hidden scrollbar-hide scroll-smooth"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-        >
-          <div className="flex gap-2 px-8 pb-4">
-            {featuredProjects.map((project, index) => {
-              const heightClass = 
-                project.height === 'tall' ? 'h-[600px]' :
-                project.height === 'medium' ? 'h-[450px]' :
-                'h-[350px]';
-              
-              return (
+        {currentPage === 1 && (
+          <motion.div
+            key="projects"
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 100 }}
+            transition={{ duration: 0.8 }}
+          >
+            {/* Projects Page */}
+            <section className="relative h-screen overflow-hidden bg-black">
+              <div className="max-w-7xl mx-auto px-8 pt-32 pb-20">
                 <motion.div
-                  key={project.id}
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.05 }}
-                  viewport={{ once: true }}
-                  className={`flex-shrink-0 w-[500px] md:w-[600px] ${heightClass}`}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                  className="mb-16 text-center"
+                >
+                
+                  <h3 className="text-5xl md:text-6xl font-display font-light text-white mb-6">
+                    Seçili Çalışmalarımız
+                  </h3>
+                  <div className="w-24 h-1 bg-white mx-auto"></div>
+                </motion.div>
+
+                {/* Projects Grid - 3 columns, 2 rows = 6 projects */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                  {featuredProjects.map((project, index) => (
+                    <motion.div
+                      key={project.id}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      className="group relative aspect-[4/3] overflow-hidden bg-black"
+                    >
+                      <Link to={`/projeler/${project.slug}`} className="block w-full h-full">
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                        <div className="absolute inset-0 flex flex-col justify-end p-4">
+                          <h4 className="text-lg font-display font-light text-white mb-1 group-hover:text-gray-200 transition-colors">
+                            {project.title}
+                          </h4>
+                          <p className="text-xs text-gray-400 font-body">{project.location}</p>
+                        </div>
+                      </Link>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* View All Button */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                  className="text-center"
                 >
                   <Link
-                    to={`/projeler/${project.slug}`}
-                    className="group block relative w-full h-full overflow-hidden bg-black"
+                    to="/projeler"
+                    className="inline-block px-8 py-3 bg-white text-black hover:bg-gray-900 hover:text-white border-2 border-white transition-all duration-300 text-sm font-body tracking-widest uppercase"
                   >
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300" />
-                    <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                      <h3 className="text-xl font-display font-light text-white">
-                        {project.title}
-                      </h3>
-                    </div>
+                    Tüm Projeleri Keşfet
                   </Link>
                 </motion.div>
-              );
-            })}
-          </div>
-        </div>
+              </div>
 
-        {/* Scroll Hint */}
-        <div className="text-center mt-8 px-8">
-          <p className="text-sm text-gray-500 font-body">
-            Kaydırarak daha fazla proje keşfedin →
-          </p>
-        </div>
-      </section>
+              {/* Page Indicators */}
+              <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                {pages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentPage(index)}
+                    className={`h-1 transition-all ${
+                      index === currentPage ? 'bg-white w-12' : 'bg-white/50 w-8'
+                    }`}
+                    aria-label={`Sayfa ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </section>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-      {/* About Section */}
-      <section className="py-32 px-8 border-t border-gray-900">
-        <div className="max-w-6xl mx-auto">
+      {/* About & Services Section - Before Footer */}
+      <section className="bg-black py-32 border-t border-gray-900">
+        <div className="max-w-7xl mx-auto px-8">
+          {/* About Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
+            className="text-center mb-20"
           >
-            <h2 className="text-sm uppercase tracking-widest text-gray-500 mb-8 font-body">
+            <h2 className="text-sm uppercase tracking-widest text-gray-500 mb-4 font-body">
               Hakkımızda
             </h2>
-            <h3 className="text-3xl md:text-5xl font-display font-light text-white mb-12">
+            <h3 className="text-4xl md:text-5xl font-display font-light text-white mb-8">
               Modern Mimarlık Anlayışı
             </h3>
-            <p className="text-xl text-gray-400 max-w-3xl leading-relaxed font-body">
+            <div className="w-24 h-px bg-white mx-auto mb-12"></div>
+            <p className="text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed font-body">
               LAV Mimarlık olarak, estetik ve fonksiyonelliği bir araya getirerek,
               yaşam alanlarınıza değer katan projeler üretiyoruz. Deneyimimiz ve modern
               yaklaşımımızla, hayalinizdeki mekanları gerçeğe dönüştürüyoruz.
             </p>
           </motion.div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-12 mt-20 pt-12 border-t border-gray-900">
+          {/* Stats Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20">
             {[
-              { number: '25+', label: 'Yıllık Deneyim' },
-              { number: '50+', label: 'Tamamlanan Proje' },
-              { number: '100+', label: 'Mutlu Müşteri' }
+              { number: '25+', label: 'Yıllık Deneyim', desc: 'Sektördeki tecrübemiz' },
+              { number: '50+', label: 'Tamamlanan Proje', desc: 'Başarılı çalışmalarımız' },
+              { number: '100+', label: 'Mutlu Müşteri', desc: 'Memnuniyet oranımız' }
             ].map((stat, index) => (
               <motion.div
                 key={index}
@@ -318,37 +307,57 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="text-center"
+                className="text-center p-8 border border-gray-900 hover:border-gray-700 transition-colors"
               >
-                <div className="text-5xl font-display font-light text-white mb-2">
+                <div className="text-6xl font-display font-light text-white mb-3">
                   {stat.number}
                 </div>
-                <div className="text-sm text-gray-500 uppercase tracking-wider font-body">
+                <div className="text-base text-white uppercase tracking-wider font-body mb-2">
                   {stat.label}
+                </div>
+                <div className="text-sm text-gray-500 font-body">
+                  {stat.desc}
                 </div>
               </motion.div>
             ))}
           </div>
+
+          {/* Services Preview */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <h3 className="text-3xl md:text-4xl font-display font-light text-white mb-12">
+              Hizmetlerimiz
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {[
+                'Mimari Proje',
+                'İç Mimari',
+                'Kentsel Dönüşüm',
+                'Danışmanlık'
+              ].map((service, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="p-6 bg-gray-900/50 hover:bg-gray-900 transition-colors"
+                >
+                  <p className="text-white font-body text-sm uppercase tracking-wider">
+                    {service}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
-
-      {/* View All Projects CTA */}
-      <section className="py-20 px-8 text-center border-t border-gray-900">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <Link
-            to="/projeler"
-            className="inline-block px-8 py-3 bg-white text-black hover:bg-gray-200 transition-colors duration-300 text-sm font-body tracking-wide"
-          >
-            Tüm Projeleri Görüntüle
-          </Link>
-        </motion.div>
-      </section>
-    </motion.div>
+    </div>
   );
 }
 

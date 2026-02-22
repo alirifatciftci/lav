@@ -45,7 +45,7 @@ export default function Corporate() {
         <img
           src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&h=900&fit=crop"
           alt="Corporate"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover grayscale"
         />
         <div className="absolute inset-0 bg-black/60" />
         <div className="absolute inset-0 flex items-center justify-center px-8">
@@ -56,14 +56,52 @@ export default function Corporate() {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-5xl md:text-7xl font-display font-light text-white mb-8 leading-tight">
-                Mimarlıkta 25 yılı aşkın<br />deneyim ve tutku.
+                LAV Mimarlık
               </h1>
-              <p className="text-lg text-gray-300 max-w-3xl mx-auto font-body leading-relaxed">
-                LAV Mimarlık, 1998 yılından bu yana estetik ve fonksiyonelliği bir araya getirerek 
-                yaşam alanlarına değer katan projeler üretmektedir.
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto font-body leading-relaxed">
+                Tecrübe, Kalite ve Güvenin Adresi
               </p>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Company History */}
+      <section className="py-20 px-8 border-t border-gray-900">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-sm uppercase tracking-widest text-gray-500 mb-4 font-body">
+              Hakkımızda
+            </h2>
+            <h3 className="text-4xl md:text-5xl font-display font-light text-white mb-8">
+              Kurumsal Tarihçemiz
+            </h3>
+            <div className="w-24 h-px bg-white mx-auto"></div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="space-y-6 text-gray-400 font-body leading-relaxed text-lg"
+          >
+            <p>
+              LAV MİMARLIK, tecrübesini yurtiçi ve yurtdışı birçok projeye imza atan, şuan gerek kamu sektöründe anahtar teslim projelerde gerekse özel sektörde çözüm ortağı olduğu birçok projede üstün başarı sağlayan, oluşumu 1994'e dayanan aile şirketinden almaktadır.
+            </p>
+            <p>
+              LAV MİMARLIK 2010-2018 yılları arasında yurtiçinde ve yurtdışında özellikle villa, ofis ve konut alanında birçok projenin tasarım ve inşai süreçlerine ortak olmuştur.
+            </p>
+            <p>
+              Yıllar içerisinde müşterilerinde belirginleşen ihtiyaç ve beklenti kriterlerini dikkate alarak, kaliteli yaşam alanları oluşturma iddiasıyla İstanbul'da 2019 yılında <span className="text-white font-medium">LAV MİMARLIK İNŞAAT LTD. ŞTİ.</span> kurumsal adıyla kurulmuştur.
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -139,27 +177,6 @@ export default function Corporate() {
       </section>
 
       {/* Story Section - Shortened */}
-      <section className="py-32 px-8 border-t border-gray-900">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-sm uppercase tracking-widest text-gray-500 mb-8 font-body">
-              Hikayemiz
-            </h2>
-            <p className="text-xl text-gray-400 font-body leading-relaxed">
-              LAV Mimarlık, 1998 yılında kurulduğundan bu yana mimarlık sektöründe 
-              öncü projeler gerçekleştirmiştir. Deneyimli kadromuz ve modern yaklaşımımızla, 
-              her projeye özgün çözümler üretiyoruz. Sürdürülebilir mimarlık anlayışımız ve 
-              kalite odaklı çalışma prensibimizle, sektörde fark yaratan projeler üretmeye devam ediyoruz.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Solution Partners */}
       <section className="py-32 px-8 border-t border-gray-900">
         <div className="max-w-7xl mx-auto">

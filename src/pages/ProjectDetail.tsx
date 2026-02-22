@@ -878,23 +878,44 @@ export default function ProjectDetail() {
               </div>
 
               {project.images.length > 1 && (
-                <div className="grid grid-cols-5 gap-3">
-                  {project.images.map((image: string, index: number) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentImageIndex(index)}
-                      className={`aspect-[4/3] overflow-hidden border-2 transition-all ${
-                        index === currentImageIndex ? 'border-white' : 'border-gray-800'
-                      }`}
-                    >
-                      <img
-                        src={image}
-                        alt={`${project.title} thumbnail ${index + 1}`}
-                        className="w-full h-full object-cover"
-                      />
-                    </button>
-                  ))}
-                </div>
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  className="mt-6"
+                >
+                  <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+                    {project.images.map((image: string, index: number) => (
+                      <motion.button
+                        key={index}
+                        onClick={() => setCurrentImageIndex(index)}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className={`relative flex-shrink-0 w-24 h-24 overflow-hidden transition-all duration-300 ${
+                          index === currentImageIndex 
+                            ? 'ring-2 ring-white ring-offset-2 ring-offset-black' 
+                            : 'opacity-60 hover:opacity-100'
+                        }`}
+                      >
+                        <img
+                          src={image}
+                          alt={`${project.title} thumbnail ${index + 1}`}
+                          className="w-full h-full object-cover"
+                        />
+                        {index === currentImageIndex && (
+                          <motion.div
+                            layoutId="activeImage"
+                            className="absolute inset-0 border-2 border-white"
+                            transition={{ duration: 0.3 }}
+                          />
+                        )}
+                      </motion.button>
+                    ))}
+                  </div>
+                  <div className="text-center mt-4 text-sm text-gray-500 font-body">
+                    {currentImageIndex + 1} / {project.images.length}
+                  </div>
+                </motion.div>
               )}
             </motion.div>
 
