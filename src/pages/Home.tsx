@@ -192,8 +192,8 @@ export default function Home() {
             transition={{ duration: 0.8 }}
           >
             {/* Projects Page */}
-            <section className="relative h-screen overflow-hidden bg-black">
-              <div className="max-w-7xl mx-auto px-8 pt-32 pb-20">
+            <section className="relative min-h-screen bg-black py-20">
+              <div className="max-w-7xl mx-auto px-8 pt-32 pb-32">
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -208,7 +208,7 @@ export default function Home() {
                 </motion.div>
 
                 {/* Projects Grid - 3 columns, 2 rows = 6 projects */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
                   {featuredProjects.map((project, index) => (
                     <motion.div
                       key={project.id}
@@ -240,7 +240,7 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.8 }}
-                  className="text-center"
+                  className="text-center mb-20"
                 >
                   <Link
                     to="/projeler"
