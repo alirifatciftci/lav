@@ -223,9 +223,16 @@ const projectsData: Record<string, ProjectData> = {
       'Özel plaj erişimi'
     ],
     images: [
-      '/assets/murat/murat1.png',
-      '/assets/murat/murat2.png',
-      '/assets/murat/murat3.png'
+      '/assets/murat/gorsel-1.jpg',
+      '/assets/murat/gorsel-2.jpg',
+      '/assets/murat/gorsel-3.jpg',
+      '/assets/murat/gorsel-4.jpg',
+      '/assets/murat/gorsel-5.jpg',
+      '/assets/murat/gorsel-6.jpg',
+      '/assets/murat/gorsel-7.jpg',
+      '/assets/murat/gorsel-8.jpg',
+      '/assets/murat/gorsel-9.jpg',
+      '/assets/murat/gorsel-12.jpg'
     ],
     status: 'Tamamlandı'
   },
@@ -246,9 +253,14 @@ const projectsData: Record<string, ProjectData> = {
       'Akıllı ev sistemleri'
     ],
     images: [
-      '/assets/onur/onur1.png',
-      '/assets/onur/onur2.png',
-      '/assets/onur/onur3.png'
+      '/assets/onur/gorsel-1.jpg',
+      '/assets/onur/gorsel-2.jpg',
+      '/assets/onur/gorsel-3.jpg',
+      '/assets/onur/gorsel-4.jpg',
+      '/assets/onur/gorsel-5.jpg',
+      '/assets/onur/gorsel-6.jpg',
+      '/assets/onur/gorsel-7.jpg',
+      '/assets/onur/gorsel-8.jpg'
     ],
     status: 'Tamamlandı'
   },
@@ -270,9 +282,19 @@ const projectsData: Record<string, ProjectData> = {
       'Peyzaj düzenlemesi'
     ],
     images: [
-      '/assets/kent/kent1.png',
-      '/assets/kent/kent2.png',
-      '/assets/kent/kent3.png'
+      '/assets/kent/gorsel-1.jpg',
+      '/assets/kent/gorsel-2.jpg',
+      '/assets/kent/gorsel-3.jpg',
+      '/assets/kent/gorsel-4.jpg',
+      '/assets/kent/gorsel-5.jpg',
+      '/assets/kent/gorsel-6.jpg',
+      '/assets/kent/gorsel-7.jpg',
+      '/assets/kent/gorsel-8.jpg',
+      '/assets/kent/gorsel-9.jpg',
+      '/assets/kent/gorsel-10.jpg',
+      '/assets/kent/gorsel-11.jpg',
+      '/assets/kent/gorsel-12.jpg',
+      '/assets/kent/gorsel-13.jpg'
     ],
     units: '130 Konut',
     status: 'Tamamlandı'
@@ -295,9 +317,18 @@ const projectsData: Record<string, ProjectData> = {
       'Peyzaj düzenlemesi'
     ],
     images: [
-      '/assets/dogal/dogal1.png',
-      '/assets/dogal/dogal2.png',
-      '/assets/dogal/dogal3.png'
+      '/assets/dogal/gorsel-1.jpg',
+      '/assets/dogal/gorsel-2.jpg',
+      '/assets/dogal/gorsel-3.jpg',
+      '/assets/dogal/gorsel-4.jpg',
+      '/assets/dogal/gorsel-5.jpg',
+      '/assets/dogal/gorsel-6.jpg',
+      '/assets/dogal/gorsel-7.jpg',
+      '/assets/dogal/gorsel-8.jpg',
+      '/assets/dogal/gorsel-9.jpg',
+      '/assets/dogal/gorsel-10.jpg',
+      '/assets/dogal/gorsel-11.jpg',
+      '/assets/dogal/gorsel-12.jpg'
     ],
     units: '12 Villa',
     status: 'Tamamlandı'
@@ -320,9 +351,15 @@ const projectsData: Record<string, ProjectData> = {
       'Lüks iç mekan tasarımı'
     ],
     images: [
-      '/assets/cınar/cınar1.png',
-      '/assets/cınar/cınar2.png',
-      '/assets/cınar/cınar3.png'
+      '/assets/cınar/1.jpg',
+      '/assets/cınar/2.jpg',
+      '/assets/cınar/3.jpg',
+      '/assets/cınar/4.jpg',
+      '/assets/cınar/5.jpg',
+      '/assets/cınar/6.jpg',
+      '/assets/cınar/7.jpg',
+      '/assets/cınar/8.jpg',
+      '/assets/cınar/9.jpg'
     ],
     status: 'Tamamlandı'
   },
@@ -446,9 +483,26 @@ const projectsData: Record<string, ProjectData> = {
       'Bahçe düzenlemesi'
     ],
     images: [
-      '/assets/aydin/aydin1.png',
-      '/assets/aydin/aydin2.png',
-      '/assets/aydin/aydin3.png'
+      '/assets/aydindogan/görsel-1.jpg',
+      '/assets/aydindogan/görsel-2.jpg',
+      '/assets/aydindogan/görsel-3.jpg',
+      '/assets/aydindogan/görsel-4.jpg',
+      '/assets/aydindogan/görsel-5.jpg',
+      '/assets/aydindogan/görsel-6.jpg',
+      '/assets/aydindogan/görsel-7.jpg',
+      '/assets/aydindogan/görsel-8.jpg',
+      '/assets/aydindogan/görsel-9.jpg',
+      '/assets/aydindogan/görsel-10.jpg',
+      '/assets/aydindogan/görsel-11.jpg',
+      '/assets/aydindogan/görsel-12.jpg',
+      '/assets/aydindogan/görsel-13.jpg',
+      '/assets/aydindogan/görsel-14.jpg',
+      '/assets/aydindogan/görsel-15.jpg',
+      '/assets/aydindogan/görsel-16.jpg',
+      '/assets/aydindogan/görsel-17.jpg',
+      '/assets/aydindogan/görsel-18.jpg',
+      '/assets/aydindogan/görsel-19.jpg',
+      '/assets/aydindogan/görsel-20.jpg'
     ],
     status: 'Tamamlandı'
   },
@@ -471,9 +525,48 @@ const projectsData: Record<string, ProjectData> = {
       'Kapalı otopark'
     ],
     images: [
-      '/assets/felluce2/felluce1.png',
-      '/assets/felluce2/felluce2.png',
-      '/assets/felluce2/felluce3.png'
+      '/assets/felluce2/GÖR-1.jpg',
+      '/assets/felluce2/GÖR2.jpg',
+      '/assets/felluce2/GÖR5.jpg',
+      '/assets/felluce2/GÖR7.jpg',
+      '/assets/felluce2/GÖRSEL-3.jpg',
+      '/assets/felluce2/GÖRSEL-4.jpg',
+      '/assets/felluce2/GÖRSEL-6.jpg',
+      '/assets/felluce2/GÖRSEL-8.jpg'
+    ],
+    status: 'Tamamlandı'
+  },
+  'kartal-residence': {
+    id: 20,
+    title: 'Kartal Residence',
+    location: 'Kartal, İstanbul',
+    year: '2024',
+    category: 'Konut',
+    scope: 'Mimari Proje, İç Mimari Tasarım',
+    description: 'Kartal Residence, modern yaşam alanları ve estetik tasarım anlayışıyla öne çıkan prestijli bir konut projesidir. İç mimari tasarımdan mimari projeye kadar tüm aşamaları kapsayan kapsamlı bir çalışmadır.',
+    details: [
+      'Modern mimari tasarım',
+      'İç mimari planlama',
+      'Geniş yaşam alanları',
+      'Özel yatak odası tasarımları',
+      'Cam balkon sistemleri',
+      'Estetik detaylar',
+      'Fonksiyonel mekan kullanımı'
+    ],
+    images: [
+      '/assets/kartal_residance/kartalresidance.jpg',
+      '/assets/kartal_residance/cam001.jpg',
+      '/assets/kartal_residance/cam002.jpg',
+      '/assets/kartal_residance/edayatakodası_1-Photo.jpg',
+      '/assets/kartal_residance/edayatakodası_2-Foto.jpg',
+      '/assets/kartal_residance/edayatakodası_3-Foto.jpg',
+      '/assets/kartal_residance/edayatakodası_4-Foto.jpg',
+      '/assets/kartal_residance/edayatakodası_5-Foto.jpg',
+      '/assets/kartal_residance/edayatakodası_6-Foto.jpg',
+      '/assets/kartal_residance/edayatakodası_7-Foto.jpg',
+      '/assets/kartal_residance/edayatakodası_8-Foto.jpg',
+      '/assets/kartal_residance/edayatakodası_9-Foto.jpg',
+      '/assets/kartal_residance/edayatakodası_10-Foto.jpg'
     ],
     status: 'Tamamlandı'
   },
@@ -599,9 +692,14 @@ const projectsData: Record<string, ProjectData> = {
       'Modern villa konsepti'
     ],
     images: [
-      '/assets/zinar/zin1.png',
-      '/assets/zinar/zin2.png',
-      '/assets/zinar/zin3.png'
+      '/assets/zinar/mountain-house-1.jpg',
+      '/assets/zinar/dgfg.png',
+      '/assets/zinar/ergt.jpg',
+      '/assets/zinar/gorsel-2.jpg',
+      '/assets/zinar/gorsel-4.jpg',
+      '/assets/zinar/img-1.jpg',
+      '/assets/zinar/img-2.jpg',
+      '/assets/zinar/yhju.jpg'
     ],
     status: 'Tamamlandı'
   },
@@ -632,28 +730,191 @@ const projectsData: Record<string, ProjectData> = {
     ],
     status: 'Tamamlandı'
   },
-  'atlas-rezidans': {
-    id: 24,
-    title: 'Atlas Rezidans',
-    location: 'Kartal, İstanbul',
-    year: '2018',
+  'ilker-residence': {
+    id: 21,
+    title: 'İlker Residence',
+    location: 'İstanbul',
+    year: '2023',
     category: 'Konut',
-    client: 'Artos İnşaat A.Ş.',
-    scope: 'Tasarım ve Proje, Taahhüt',
-    description: 'Atlas Rezidans, Kartal\'da Artos İnşaat A.Ş. için gerçekleştirilen modern bir konut projesidir. Tasarım ve proje aşamasından taahhüt sürecine kadar tüm aşamaları kapsayan kapsamlı bir çalışmadır.',
+    scope: 'Mimari Proje, İç Mimari Tasarım',
+    description: 'İlker Residence, modern yaşam alanları ve estetik tasarım anlayışıyla öne çıkan prestijli bir konut projesidir. İç mimari tasarımdan mimari projeye kadar tüm aşamaları kapsayan kapsamlı bir çalışmadır.',
     details: [
-      'Tasarım ve Proje',
-      'Taahhüt',
-      'Modern konut tasarımı',
-      'Geniş daireler',
-      'Sosyal yaşam alanları',
-      'Kapalı otopark',
-      'Güvenlik sistemleri'
+      'Modern mimari tasarım',
+      'İç mimari planlama',
+      'Geniş yaşam alanları',
+      'Estetik detaylar',
+      'Fonksiyonel mekan kullanımı',
+      'Kaliteli malzeme seçimi'
     ],
     images: [
-      '/assets/ina/ina.jpeg'
+      '/assets/ilker2/GÖRSEL7.jpg',
+      '/assets/ilker2/GÖRSEL1.jpg',
+      '/assets/ilker2/GÖRSEL2.jpg',
+      '/assets/ilker2/GÖRSEL3.jpg',
+      '/assets/ilker2/GÖRSEL4.jpg',
+      '/assets/ilker2/GÖRSEL5.jpg',
+      '/assets/ilker2/GÖRSEL6.jpg',
+      '/assets/ilker2/GÖRSEL8.jpg',
+      '/assets/ilker2/GÖRSEL9.jpg',
+      '/assets/ilker2/GÖRSEL10.jpg'
     ],
-    units: '72 Konut',
+    status: 'Tamamlandı'
+  },
+  'simge-residence': {
+    id: 28,
+    title: 'Simge Residence',
+    location: 'İstanbul',
+    year: '2023',
+    category: 'Konut',
+    scope: 'Mimari Proje, İç Mimari Tasarım',
+    description: 'Simge Residence, modern mimari anlayış ve konforlu yaşam alanlarıyla öne çıkan prestijli bir konut projesidir. İç mimari tasarımdan mimari projeye kadar tüm detaylarıyla planlanmış kapsamlı bir çalışmadır.',
+    details: [
+      'Modern mimari tasarım',
+      'İç mimari planlama',
+      'Geniş balkon alanları',
+      'Estetik ve fonksiyonel mekanlar',
+      'Kaliteli malzeme kullanımı',
+      'Konforlu yaşam alanları'
+    ],
+    images: [
+      '/assets/simge/x-7-foto.jpg',
+      '/assets/simge/as-1-photo.jpg',
+      '/assets/simge/as-2-foto.jpg',
+      '/assets/simge/as-3-foto.jpg',
+      '/assets/simge/as-4-foto.jpg',
+      '/assets/simge/as-5-foto.jpg',
+      '/assets/simge/as-6-foto.jpg',
+      '/assets/simge/balkon-1.jpg',
+      '/assets/simge/balkon-2.jpg',
+      '/assets/simge/balkon-3.jpg',
+      '/assets/simge/balkon-4.jpg',
+      '/assets/simge/balkon-5.jpg',
+      '/assets/simge/görsel-1.jpg',
+      '/assets/simge/görsel-2.jpg',
+      '/assets/simge/görsel-3.jpg',
+      '/assets/simge/görsel-5.jpg',
+      '/assets/simge/görsel-8.jpg',
+      '/assets/simge/h-1-photo.jpg',
+      '/assets/simge/h-2-foto.jpg',
+      '/assets/simge/h-3-foto.jpg',
+      '/assets/simge/h-4-foto.jpg',
+      '/assets/simge/h-5-foto.jpg'
+    ],
+    status: 'Tamamlandı'
+  },
+  'zaho-residence': {
+    id: 29,
+    title: 'Zaho Residence',
+    location: 'Zaho, Irak',
+    year: '2023',
+    category: 'Konut',
+    scope: 'Mimari Proje, İç Mimari Tasarım',
+    description: 'Zaho Residence, Irak\'ın Zaho şehrinde gerçekleştirilen modern bir konut projesidir. Bölgenin mimari dokusuna uygun, çağdaş yaşam standartlarını karşılayan bir tasarım anlayışıyla hayata geçirilmiştir.',
+    details: [
+      'Modern mimari tasarım',
+      'Bölgesel mimari uyum',
+      'Fonksiyonel mekan planlaması',
+      'Kaliteli malzeme seçimi',
+      'Konforlu yaşam alanları',
+      'Estetik detaylar'
+    ],
+    images: [
+      '/assets/zaho/zaho-2.jpg',
+      '/assets/zaho/zaho-1.jpg',
+      '/assets/zaho/zaho-3.jpg',
+      '/assets/zaho/zaho-gorsel-1.jpg',
+      '/assets/zaho/zaho.jpg'
+    ],
+    status: 'Tamamlandı'
+  },
+  'ofis-ic-mimari': {
+    id: 30,
+    title: 'İsar Mühendislik',
+    location: 'İstanbul',
+    year: '2023',
+    category: 'Ofis',
+    scope: 'İç Mimari Tasarım ve Uygulama',
+    description: 'İsar Mühendislik ofis iç mimari projesi, fonksiyonel çalışma alanları ve estetik tasarım anlayışıyla öne çıkan kapsamlı bir çalışmadır. Müdür odaları, toplantı salonları, çalışma alanları ve ortak kullanım mekanlarının detaylı tasarımını içermektedir.',
+    details: [
+      'Modern ofis tasarımı',
+      'Fonksiyonel mekan planlaması',
+      'Müdür odası tasarımı',
+      'Toplantı salonu düzenlemesi',
+      'Çalışma alanları',
+      'Koridor ve ortak alan tasarımı',
+      'Teknik ofis düzenlemesi',
+      'Muhasebe ve sekreter odaları',
+      'Ergonomik mobilya seçimi',
+      'Aydınlatma tasarımı'
+    ],
+    images: [
+      '/assets/ofis/giris-1.jpg',
+      '/assets/ofis/giris-2.jpg',
+      '/assets/ofis/giris-3.jpg',
+      '/assets/ofis/bina-girisi.jpg',
+      '/assets/ofis/koridor.jpg',
+      '/assets/ofis/mudur-odasi-1.jpg',
+      '/assets/ofis/mudur-odasi-2.jpg',
+      '/assets/ofis/mudur-odasi-3.jpg',
+      '/assets/ofis/toplanti-odasi-1.jpg',
+      '/assets/ofis/toplanti-odasi-2.jpg',
+      '/assets/ofis/toplanti-odasi-7.jpg',
+      '/assets/ofis/isa-oda-12.jpg',
+      '/assets/ofis/isa-oda-13.jpg',
+      '/assets/ofis/isa-oda-14.jpg',
+      '/assets/ofis/muhasebe.jpg',
+      '/assets/ofis/sekreter.jpg',
+      '/assets/ofis/teknik-ofis.jpg',
+      '/assets/ofis/teknik-ofis-muhasebe.jpg',
+      '/assets/ofis/plan.jpg',
+      '/assets/ofis/mmm.jpg',
+      '/assets/ofis/sss.jpg',
+      '/assets/ofis/o.jpg'
+    ],
+    status: 'Tamamlandı'
+  },
+  'arif-residence': {
+    id: 31,
+    title: 'Arif Residence',
+    location: 'İstanbul',
+    year: '2023',
+    category: 'Konut',
+    scope: 'Mimari Proje, İç Mimari Tasarım',
+    description: 'Arif Residence, modern mimari anlayış ve detaylı iç mekan tasarımıyla öne çıkan prestijli bir konut projesidir. Dış cephe tasarımından iç mimari detaylara kadar tüm aşamaları kapsayan kapsamlı bir çalışmadır.',
+    details: [
+      'Modern mimari tasarım',
+      'Detaylı dış cephe çalışması',
+      'İç mimari planlama',
+      'Fonksiyonel mekan kullanımı',
+      'Estetik detaylar',
+      'Kaliteli malzeme seçimi',
+      'Konforlu yaşam alanları',
+      'Aydınlatma tasarımı'
+    ],
+    images: [
+      '/assets/arif/discephe-2.jpg',
+      '/assets/arif/discephe-1.jpg',
+      '/assets/arif/discephe-3.jpg',
+      '/assets/arif/discephe-4.jpg',
+      '/assets/arif/discephe-5.jpg',
+      '/assets/arif/discephe-6.jpg',
+      '/assets/arif/discephe-7.jpg',
+      '/assets/arif/discephe-8.jpg',
+      '/assets/arif/discephe-9.jpg',
+      '/assets/arif/discephe-10.jpg',
+      '/assets/arif/discephe-11.jpg',
+      '/assets/arif/ic-gorsel-1.jpg',
+      '/assets/arif/ic-gorsel-2.jpg',
+      '/assets/arif/ic-gorsel-3.jpg',
+      '/assets/arif/ic-gorsel-4.jpg',
+      '/assets/arif/ic-gorsel-5.jpg',
+      '/assets/arif/ic-gorsel-6.jpg',
+      '/assets/arif/ic-gorsel-7.jpg',
+      '/assets/arif/ic-gorsel-8.jpg',
+      '/assets/arif/ic-gorsel-9.jpg',
+      '/assets/arif/ic-gorsel-10.jpg',
+      '/assets/arif/instagram-1.jpg'
+    ],
     status: 'Tamamlandı'
   },
   'ilker-tastekin-evi': {
@@ -675,40 +936,33 @@ const projectsData: Record<string, ProjectData> = {
       'Peyzaj düzenlemesi'
     ],
     images: [
-      '/assets/tastekin/tas1.png',
-      '/assets/tastekin/tas2.png',
-      '/assets/tastekin/tas3.png',
-      '/assets/tastekin/tas4.png',
-      '/assets/tastekin/tas5.png'
+      '/assets/ilker/gorsel-1.jpg',
+      '/assets/ilker/gorsel-2.jpg',
+      '/assets/ilker/gorsel-3.jpg',
+      '/assets/ilker/gorsel-4.jpg',
+      '/assets/ilker/gorsel-5.jpg',
+      '/assets/ilker/gorsel-6.jpg',
+      '/assets/ilker/gorsel-7.jpg',
+      '/assets/ilker/gorsel-8.jpg',
+      '/assets/ilker/gorsel-9.jpg',
+      '/assets/ilker/gorsel-10.jpg',
+      '/assets/ilker/gorsel-11.jpg',
+      '/assets/ilker/gorsel-12.jpg',
+      '/assets/ilker/gorsel-13.jpg',
+      '/assets/ilker/gorsel-14.jpg',
+      '/assets/ilker/gorsel-15.jpg',
+      '/assets/ilker/gorsel-16.jpg',
+      '/assets/ilker/gorsel-17.jpg',
+      '/assets/ilker/gorsel-18.jpg',
+      '/assets/ilker/gorsel-19.jpg',
+      '/assets/ilker/gorsel-20.jpg',
+      '/assets/ilker/gorsel-21.jpg',
+      '/assets/ilker/insta.jpg',
+      '/assets/ilker/instagram1.jpg'
     ],
     status: 'Tamamlandı'
   },
-  'erbil-business-center': {
-    id: 26,
-    title: 'Erbil Business Center',
-    location: 'Erbil, Irak',
-    year: '2014',
-    category: 'Ticari',
-    client: 'Serbest Dizayee - Artos Group',
-    scope: 'Mimari Projelendirme, İnşai İmalatların Yapılması, Mekanik ve Elektrik İmalatlarının Projelendirilmesi ve Yapılması',
-    description: 'Erbil Business Center, Irak\'ın Erbil şehrinde Serbest Dizayee - Artos Group için gerçekleştirilen kapsamlı bir iş merkezi projesidir. 8.550 m² inşaat alanına sahip proje, mimari projelendirmeden mekanik ve elektrik sistemlerine kadar tüm aşamaları kapsayan anahtar teslim bir çalışmadır.',
-    details: [
-      'Mimari Projelendirme',
-      'İnşai İmalatların Yapılması',
-      'Mekanik İmalatlarının Projelendirilmesi',
-      'Elektrik İmalatlarının Projelendirilmesi',
-      'Mekanik İmalatlarının Yapılması',
-      'Elektrik İmalatlarının Yapılması',
-      'Modern iş merkezi tasarımı',
-      'Toplam 8.550 m² inşaat alanı'
-    ],
-    images: [
-      '/assets/erbil/er1.png',
-      '/assets/erbil/er2.png',
-      '/assets/erbil/er3.png'
-    ],
-    status: 'Tamamlandı'
-  },
+
   'mimoza-apartmani': {
     id: 27,
     title: 'Mimoza Apartmanı',
@@ -728,12 +982,13 @@ const projectsData: Record<string, ProjectData> = {
       'Güvenlik sistemleri'
     ],
     images: [
-      '/assets/mimoza/mim1.png',
-      '/assets/mimoza/mim2.png',
-      '/assets/mimoza/mim3.png',
-      '/assets/mimoza/mim4.png',
-      '/assets/mimoza/mim5.png',
-      '/assets/mimoza/mim6.png'
+      '/assets/mimoza/mimozaa.jpg',
+      '/assets/mimoza/banyo-1.jpg',
+      '/assets/mimoza/banyo-2.jpg',
+      '/assets/mimoza/koridor1.jpg',
+      '/assets/mimoza/koridor2.jpg',
+      '/assets/mimoza/koridor3.jpg',
+      '/assets/mimoza/koridor4.jpg'
     ],
     units: '18 Konut',
     status: 'Tamamlandı'
@@ -759,9 +1014,10 @@ const projectsData: Record<string, ProjectData> = {
       'Modern villa tasarımı'
     ],
     images: [
-      '/assets/green/green1.png',
-      '/assets/green/green2.png',
-      '/assets/green/green3.png'
+      '/assets/green/Resim4.jpeg',
+      '/assets/green/Resim1.jpg',
+      '/assets/green/Resim2.jpg',
+      '/assets/green/Resim3.jpg'
     ],
     status: 'Tamamlandı'
   },
@@ -844,6 +1100,7 @@ export default function ProjectDetail() {
                 <img
                   src={project.images[currentImageIndex]}
                   alt={`${project.title} - ${currentImageIndex + 1}`}
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
                 
@@ -900,6 +1157,7 @@ export default function ProjectDetail() {
                         <img
                           src={image}
                           alt={`${project.title} thumbnail ${index + 1}`}
+                          loading="lazy"
                           className="w-full h-full object-cover"
                         />
                         {index === currentImageIndex && (

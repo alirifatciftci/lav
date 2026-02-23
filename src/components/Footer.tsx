@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
-import logo from '../assets/beyazlogo.png';
 
 export default function Footer() {
   return (
@@ -91,7 +90,7 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <img 
-              src={logo} 
+              src="/assets/beyazlogo.png" 
               alt="LAV Mimarlık" 
               className="h-14 mb-6"
             />

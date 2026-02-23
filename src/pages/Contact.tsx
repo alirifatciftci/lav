@@ -157,7 +157,8 @@ export default function Contact() {
               <div className="flex justify-center mb-8">
                 <img 
                   src="/assets/beyazlogo.png" 
-                  alt="LAV Mimarlık" 
+                  alt="LAV Mimarlık"
+                  loading="lazy"
                   className="h-16"
                 />
               </div>

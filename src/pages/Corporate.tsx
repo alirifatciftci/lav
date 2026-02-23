@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { Building2, Target, Users, Award } from 'lucide-react';
-import logo from '../assets/beyazlogo.png';
 
 const values = [
   {
@@ -46,6 +45,7 @@ export default function Corporate() {
         <img
           src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&h=900&fit=crop"
           alt="Corporate"
+          loading="eager"
           className="w-full h-full object-cover grayscale"
         />
         <div className="absolute inset-0 bg-black/60" />
@@ -59,8 +59,9 @@ export default function Corporate() {
               {/* Logo */}
               <div className="flex justify-center mb-8">
                 <img 
-                  src={logo} 
-                  alt="LAV Mimarlık" 
+                  src="/assets/beyazlogo.png" 
+                  alt="LAV Mimarlık"
+                  loading="eager"
                   className="h-40 md:h-52 lg:h-64 drop-shadow-2xl"
                 />
               </div>

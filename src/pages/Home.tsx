@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import logo from '../assets/lavlogoname.png';
 
 const featuredProjects = [
   {
@@ -134,6 +133,7 @@ export default function Home() {
               <img
                 src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=1600&h=900&fit=crop"
                 alt="LAV Mimarlık"
+                loading="eager"
                 className="w-full h-full object-cover grayscale"
               />
               <div className="absolute inset-0 bg-black/60" />
@@ -148,8 +148,9 @@ export default function Home() {
                     className="mb-12"
                   >
                     <img 
-                      src={logo} 
-                      alt="LAV Mimarlık" 
+                      src="/assets/lavlogoname.png" 
+                      alt="LAV Mimarlık"
+                      loading="eager"
                       className="h-40 md:h-52 lg:h-64 mx-auto drop-shadow-2xl"
                     />
                   </motion.div>
@@ -221,6 +222,7 @@ export default function Home() {
                         <img
                           src={project.image}
                           alt={project.title}
+                          loading="lazy"
                           className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
