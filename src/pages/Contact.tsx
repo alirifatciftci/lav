@@ -156,9 +156,9 @@ export default function Contact() {
               {/* Logo */}
               <div className="flex justify-center mb-8">
                 <img 
-                  src="/assets/lavlogoname.png" 
+                  src="/assets/beyazlogo.png" 
                   alt="LAV Mimarlık" 
-                  className="h-12"
+                  className="h-16"
                 />
               </div>
 

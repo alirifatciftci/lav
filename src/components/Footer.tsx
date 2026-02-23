@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
-import logo from '../assets/lavlogoname.png';
+import logo from '../assets/beyazlogo.png';
 
 export default function Footer() {
   return (
@@ -93,14 +93,14 @@ export default function Footer() {
             <img 
               src={logo} 
               alt="LAV Mimarlık" 
-              className="h-10 mb-6"
+              className="h-14 mb-6"
             />
             <p className="text-gray-400 font-body text-sm leading-relaxed mb-6">
               Estetik ve fonksiyonelliği bir araya getiren mimarlık.
             </p>
             <div className="flex gap-4">
               <a
-                href="https://www.instagram.com/lavmimarlik"
+                href="https://www.instagram.com/lavmimarlik/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
@@ -108,7 +108,7 @@ export default function Footer() {
                 <Instagram size={20} strokeWidth={1.5} />
               </a>
               <a
-                href="https://www.linkedin.com/company/lav-mimarlik"
+                href="https://www.linkedin.com/in/lav-mimarl%C4%B1k-8568b61b1/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"

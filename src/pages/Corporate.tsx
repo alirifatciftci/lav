@@ -176,47 +176,6 @@ export default function Corporate() {
         </div>
       </section>
 
-      {/* Story Section - Shortened */}
-      {/* Solution Partners */}
-      <section className="py-32 px-8 border-t border-gray-900">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mb-16"
-          >
-            <h2 className="text-sm uppercase tracking-widest text-gray-500 mb-4 font-body">
-              Çözüm Ortaklarımız
-            </h2>
-            <h3 className="text-4xl md:text-5xl font-display font-light text-white">
-              Güçlü iş birlikleri
-            </h3>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="text-lg text-gray-400 font-body leading-relaxed"
-          >
-            <p className="mb-6">
-              Projelerimizde başarıya ulaşmamızda, alanında uzman çözüm ortaklarımızla 
-              kurduğumuz güçlü iş birlikleri önemli rol oynamaktadır. Mekanik tesisat, 
-              elektrik, statik hesaplamalar ve diğer teknik disiplinlerde sektörün önde 
-              gelen firmaları ile çalışarak, projelerimizin her aşamasında en yüksek 
-              kalite standartlarını sağlıyoruz.
-            </p>
-            <p>
-              İnşaat malzemeleri, mobilya tedariki ve özel imalatlarda güvenilir tedarikçilerimiz, 
-              projelerimizin zamanında ve kaliteli bir şekilde tamamlanmasını garanti eder.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-32 px-8 border-t border-gray-900 text-center">
         <div className="max-w-4xl mx-auto">

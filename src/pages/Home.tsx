@@ -330,30 +330,77 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center"
           >
-            <h3 className="text-3xl md:text-4xl font-display font-light text-white mb-12">
+            <h2 className="text-sm uppercase tracking-widest text-gray-500 mb-4 font-body">
+              Uzmanlık Alanlarımız
+            </h2>
+            <h3 className="text-4xl md:text-5xl font-display font-light text-white mb-8">
               Hizmetlerimiz
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="w-24 h-px bg-white mx-auto mb-16"></div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
-                'Mimari Proje',
-                'İç Mimari',
-                'Kentsel Dönüşüm',
-                'Danışmanlık'
+                { 
+                  title: 'Mimari Proje',
+                  desc: 'Estetik ve fonksiyonel mimari tasarımlar'
+                },
+                { 
+                  title: 'İç Mimari',
+                  desc: 'Yaşam alanlarınıza özel iç mekan çözümleri'
+                },
+                { 
+                  title: 'Kentsel Dönüşüm',
+                  desc: 'Şehir dokusuna uyumlu dönüşüm projeleri'
+                },
+                { 
+                  title: 'Danışmanlık',
+                  desc: 'Profesyonel mimarlık danışmanlık hizmetleri'
+                }
               ].map((service, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="p-6 bg-gray-900/50 hover:bg-gray-900 transition-colors"
+                  className="group relative p-8 border border-gray-900 hover:border-white transition-all duration-500"
                 >
-                  <p className="text-white font-body text-sm uppercase tracking-wider">
-                    {service}
+                  {/* Number */}
+                  <div className="text-6xl font-display font-light text-gray-800 group-hover:text-gray-700 transition-colors mb-4">
+                    0{index + 1}
+                  </div>
+                  
+                  {/* Title */}
+                  <h4 className="text-xl font-display font-light text-white mb-3 uppercase tracking-wider">
+                    {service.title}
+                  </h4>
+                  
+                  {/* Description */}
+                  <p className="text-sm text-gray-500 group-hover:text-gray-400 transition-colors font-body leading-relaxed">
+                    {service.desc}
                   </p>
+                  
+                  {/* Decorative line */}
+                  <div className="absolute bottom-0 left-0 w-0 h-px bg-white group-hover:w-full transition-all duration-500"></div>
                 </motion.div>
               ))}
             </div>
+            
+            {/* CTA Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              viewport={{ once: true }}
+              className="mt-16"
+            >
+              <Link
+                to="/hizmetler"
+                className="inline-block px-8 py-3 bg-transparent text-white hover:bg-white hover:text-black border border-white transition-all duration-300 text-sm font-body tracking-widest uppercase"
+              >
+                Tüm Hizmetleri Görüntüle
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </section>
