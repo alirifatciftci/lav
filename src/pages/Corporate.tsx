@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Building2, Target, Users, Award } from 'lucide-react';
+import logo from '../assets/beyazlogo.png';
 
 const values = [
   {
@@ -55,9 +56,15 @@ export default function Corporate() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-5xl md:text-7xl font-display font-light text-white mb-8 leading-tight">
-                LAV Mimarlık
-              </h1>
+              {/* Logo */}
+              <div className="flex justify-center mb-8">
+                <img 
+                  src={logo} 
+                  alt="LAV Mimarlık" 
+                  className="h-40 md:h-52 lg:h-64 drop-shadow-2xl"
+                />
+              </div>
+              
               <p className="text-xl text-gray-300 max-w-3xl mx-auto font-body leading-relaxed">
                 Tecrübe, Kalite ve Güvenin Adresi
               </p>
