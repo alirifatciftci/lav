@@ -1,6 +1,6 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { MapPin, Calendar, Briefcase, ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { MapPin, Calendar, Briefcase, ArrowLeft, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { useState } from 'react';
 
 interface ProjectData {
@@ -963,6 +963,50 @@ const projectsData: Record<string, ProjectData> = {
     status: 'Tamamlandı'
   },
 
+  'aydin-dogan-villalari-2': {
+    id: 33,
+    title: 'Aydın Doğan Villaları 2',
+    location: 'Bodrum, Muğla',
+    year: '2019',
+    category: 'Villa',
+    client: 'Aydın Doğan',
+    scope: 'Tasarım ve Proje, Taahhüt',
+    description: 'Aydın Doğan Villaları 2, Bodrum\'da Aydın Doğan için gerçekleştirilen modern villa projesidir. Tasarım ve proje aşamasından taahhüt sürecine kadar tüm aşamaları kapsayan kapsamlı bir çalışmadır.',
+    details: [
+      'Tasarım ve Proje',
+      'Taahhüt',
+      'Modern villa tasarımı',
+      'Deniz manzaralı konum',
+      'Geniş teraslar',
+      'Özel havuz',
+      'Peyzaj düzenlemesi',
+      'Lüks iç mekan tasarımı'
+    ],
+    images: [
+      '/assets/aydin/discephe-1.jpg',
+      '/assets/aydin/discephe-2.jpg',
+      '/assets/aydin/discephe-3.jpg',
+      '/assets/aydin/discephe-4.jpg',
+      '/assets/aydin/discephe-5.jpg',
+      '/assets/aydin/discephe-6.jpg',
+      '/assets/aydin/discephe-7.jpg',
+      '/assets/aydin/discephe-8.jpg',
+      '/assets/aydin/discephe-9.jpg',
+      '/assets/aydin/discephe-10.jpg',
+      '/assets/aydin/discephe-11.jpg',
+      '/assets/aydin/mutfak-1.jpg',
+      '/assets/aydin/mutfak-2.jpg',
+      '/assets/aydin/mutfak-3.jpg',
+      '/assets/aydin/salon-1.jpg',
+      '/assets/aydin/salon-2.jpg',
+      '/assets/aydin/salon-3.jpg',
+      '/assets/aydin/salon-4.jpg',
+      '/assets/aydin/salon-5.jpg',
+      '/assets/aydin/salon-6.jpg'
+    ],
+    status: 'Tamamlandı'
+  },
+
   'mimoza-apartmani': {
     id: 27,
     title: 'Mimoza Apartmanı',
@@ -1051,6 +1095,8 @@ const projectsData: Record<string, ProjectData> = {
 export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [lightboxImageIndex, setLightboxImageIndex] = useState(0);
 
   if (!slug || !projectsData[slug]) {
     return <Navigate to="/projeler" replace />;
@@ -1064,6 +1110,23 @@ export default function ProjectDetail() {
 
   const prevImage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + project.images.length) % project.images.length);
+  };
+
+  const openLightbox = (index: number) => {
+    setLightboxImageIndex(index);
+    setIsLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setIsLightboxOpen(false);
+  };
+
+  const nextLightboxImage = () => {
+    setLightboxImageIndex((prev) => (prev + 1) % project.images.length);
+  };
+
+  const prevLightboxImage = () => {
+    setLightboxImageIndex((prev) => (prev - 1 + project.images.length) % project.images.length);
   };
 
   return (
@@ -1096,34 +1159,52 @@ export default function ProjectDetail() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <div className="relative aspect-[4/3] bg-gray-900 overflow-hidden mb-6 border border-gray-800">
+              <div 
+                className="relative aspect-[4/3] bg-gray-900 overflow-hidden mb-6 border border-gray-800 cursor-pointer group"
+                onClick={() => openLightbox(currentImageIndex)}
+              >
                 <img
                   src={project.images[currentImageIndex]}
                   alt={`${project.title} - ${currentImageIndex + 1}`}
                   loading="lazy"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                  <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-medium bg-black/50 px-4 py-2 rounded">
+                    Büyütmek için tıklayın
+                  </span>
+                </div>
+
                 {project.images.length > 1 && (
                   <>
                     <button
-                      onClick={prevImage}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white hover:bg-yellow-400 transition-colors"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        prevImage();
+                      }}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white hover:bg-yellow-400 transition-colors z-10"
                     >
                       <ChevronLeft className="text-gray-900" size={24} />
                     </button>
                     <button
-                      onClick={nextImage}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white hover:bg-yellow-400 transition-colors"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        nextImage();
+                      }}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white hover:bg-yellow-400 transition-colors z-10"
                     >
                       <ChevronRight className="text-gray-900" size={24} />
                     </button>
 
-                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
                       {project.images.map((_: string, index: number) => (
                         <button
                           key={index}
-                          onClick={() => setCurrentImageIndex(index)}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setCurrentImageIndex(index);
+                          }}
                           className={`h-1 transition-all ${
                             index === currentImageIndex ? 'bg-white w-12' : 'bg-white/50 w-8'
                           }`}
@@ -1145,10 +1226,13 @@ export default function ProjectDetail() {
                     {project.images.map((image: string, index: number) => (
                       <motion.button
                         key={index}
-                        onClick={() => setCurrentImageIndex(index)}
+                        onClick={() => {
+                          setCurrentImageIndex(index);
+                          openLightbox(index);
+                        }}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className={`relative flex-shrink-0 w-24 h-24 overflow-hidden transition-all duration-300 ${
+                        className={`relative flex-shrink-0 w-28 h-28 overflow-hidden transition-all duration-300 cursor-pointer ${
                           index === currentImageIndex 
                             ? 'ring-2 ring-white ring-offset-2 ring-offset-black' 
                             : 'opacity-60 hover:opacity-100'
@@ -1233,6 +1317,69 @@ export default function ProjectDetail() {
           </div>
         </div>
       </div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {isLightboxOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
+            onClick={closeLightbox}
+          >
+            <button
+              onClick={closeLightbox}
+              className="absolute top-6 right-6 p-3 bg-white hover:bg-yellow-400 transition-colors z-50"
+            >
+              <X className="text-gray-900" size={24} />
+            </button>
+
+            <div className="relative w-full h-full flex items-center justify-center p-4 md:p-8">
+              <motion.img
+                key={lightboxImageIndex}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.3 }}
+                src={project.images[lightboxImageIndex]}
+                alt={`${project.title} - ${lightboxImageIndex + 1}`}
+                className="max-w-full max-h-full object-contain"
+                onClick={(e) => e.stopPropagation()}
+              />
+
+              {project.images.length > 1 && (
+                <>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      prevLightboxImage();
+                    }}
+                    className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 p-4 bg-white hover:bg-yellow-400 transition-colors"
+                  >
+                    <ChevronLeft className="text-gray-900" size={32} />
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      nextLightboxImage();
+                    }}
+                    className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 p-4 bg-white hover:bg-yellow-400 transition-colors"
+                  >
+                    <ChevronRight className="text-gray-900" size={32} />
+                  </button>
+
+                  <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-black/70 px-6 py-3 rounded-full">
+                    <span className="text-white text-sm font-medium">
+                      {lightboxImageIndex + 1} / {project.images.length}
+                    </span>
+                  </div>
+                </>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }

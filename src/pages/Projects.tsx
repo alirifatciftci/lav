@@ -1,8 +1,194 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const projects = [
+  {
+    id: 33,
+    title: 'Aydın Doğan Villaları 2',
+    location: 'İstanbul',
+    year: '2023',
+    category: 'Villa',
+    image: '/assets/aydin/discephe-1.jpg',
+    images: [
+      '/assets/aydin/discephe-1.jpg',
+      '/assets/aydin/discephe-2.jpg',
+      '/assets/aydin/discephe-3.jpg',
+      '/assets/aydin/discephe-4.jpg',
+      '/assets/aydin/discephe-5.jpg',
+      '/assets/aydin/discephe-6.jpg',
+      '/assets/aydin/discephe-7.jpg',
+      '/assets/aydin/discephe-8.jpg',
+      '/assets/aydin/discephe-9.jpg',
+      '/assets/aydin/discephe-10.jpg',
+      '/assets/aydin/discephe-11.jpg',
+      '/assets/aydin/mutfak-1.jpg',
+      '/assets/aydin/mutfak-2.jpg',
+      '/assets/aydin/mutfak-3.jpg',
+      '/assets/aydin/salon-1.jpg',
+      '/assets/aydin/salon-2.jpg',
+      '/assets/aydin/salon-3.jpg',
+      '/assets/aydin/salon-4.jpg',
+      '/assets/aydin/salon-5.jpg',
+      '/assets/aydin/salon-6.jpg'
+    ],
+    slug: 'aydin-dogan-villalari-2',
+    size: 'large',
+  },
+  {
+    id: 32,
+    title: 'İlker Taştekin Evi',
+    location: 'Foça, İzmir',
+    year: '2015',
+    category: 'Villa',
+    image: '/assets/ilker/gorsel-1.jpg',
+    images: [
+      '/assets/ilker/gorsel-1.jpg',
+      '/assets/ilker/gorsel-2.jpg',
+      '/assets/ilker/gorsel-3.jpg',
+      '/assets/ilker/gorsel-4.jpg',
+      '/assets/ilker/gorsel-5.jpg',
+      '/assets/ilker/gorsel-6.jpg',
+      '/assets/ilker/gorsel-7.jpg',
+      '/assets/ilker/gorsel-8.jpg',
+      '/assets/ilker/gorsel-9.jpg',
+      '/assets/ilker/gorsel-10.jpg',
+      '/assets/ilker/gorsel-11.jpg',
+      '/assets/ilker/gorsel-12.jpg',
+      '/assets/ilker/gorsel-13.jpg',
+      '/assets/ilker/gorsel-14.jpg',
+      '/assets/ilker/gorsel-15.jpg',
+      '/assets/ilker/gorsel-16.jpg',
+      '/assets/ilker/gorsel-17.jpg',
+      '/assets/ilker/gorsel-18.jpg',
+      '/assets/ilker/gorsel-19.jpg',
+      '/assets/ilker/gorsel-20.jpg',
+      '/assets/ilker/gorsel-21.jpg',
+      '/assets/ilker/insta.jpg',
+      '/assets/ilker/instagram1.jpg'
+    ],
+    slug: 'ilker-tastekin-evi',
+    size: 'large',
+  },
+  {
+    id: 31,
+    title: 'Arif Residence',
+    location: 'İstanbul',
+    year: '2023',
+    category: 'Konut',
+    image: '/assets/arif/discephe-2.jpg',
+    images: [
+      '/assets/arif/discephe-2.jpg',
+      '/assets/arif/discephe-1.jpg',
+      '/assets/arif/discephe-3.jpg',
+      '/assets/arif/discephe-4.jpg',
+      '/assets/arif/discephe-5.jpg',
+      '/assets/arif/discephe-6.jpg',
+      '/assets/arif/discephe-7.jpg',
+      '/assets/arif/discephe-8.jpg',
+      '/assets/arif/discephe-9.jpg',
+      '/assets/arif/discephe-10.jpg',
+      '/assets/arif/discephe-11.jpg',
+      '/assets/arif/ic-gorsel-1.jpg',
+      '/assets/arif/ic-gorsel-2.jpg',
+      '/assets/arif/ic-gorsel-3.jpg',
+      '/assets/arif/ic-gorsel-4.jpg',
+      '/assets/arif/ic-gorsel-5.jpg',
+      '/assets/arif/ic-gorsel-6.jpg',
+      '/assets/arif/ic-gorsel-7.jpg',
+      '/assets/arif/ic-gorsel-8.jpg',
+      '/assets/arif/ic-gorsel-9.jpg',
+      '/assets/arif/ic-gorsel-10.jpg',
+      '/assets/arif/instagram-1.jpg'
+    ],
+    slug: 'arif-residence',
+    size: 'large',
+  },
+  {
+    id: 30,
+    title: 'İsar Mühendislik',
+    location: 'İstanbul',
+    year: '2023',
+    category: 'Ofis',
+    image: '/assets/ofis/giris-1.jpg',
+    images: [
+      '/assets/ofis/giris-1.jpg',
+      '/assets/ofis/giris-2.jpg',
+      '/assets/ofis/giris-3.jpg',
+      '/assets/ofis/bina-girisi.jpg',
+      '/assets/ofis/koridor.jpg',
+      '/assets/ofis/mudur-odasi-1.jpg',
+      '/assets/ofis/mudur-odasi-2.jpg',
+      '/assets/ofis/mudur-odasi-3.jpg',
+      '/assets/ofis/toplanti-odasi-1.jpg',
+      '/assets/ofis/toplanti-odasi-2.jpg',
+      '/assets/ofis/toplanti-odasi-7.jpg',
+      '/assets/ofis/isa-oda-12.jpg',
+      '/assets/ofis/isa-oda-13.jpg',
+      '/assets/ofis/isa-oda-14.jpg',
+      '/assets/ofis/muhasebe.jpg',
+      '/assets/ofis/sekreter.jpg',
+      '/assets/ofis/teknik-ofis.jpg',
+      '/assets/ofis/teknik-ofis-muhasebe.jpg',
+      '/assets/ofis/plan.jpg',
+      '/assets/ofis/mmm.jpg',
+      '/assets/ofis/sss.jpg',
+      '/assets/ofis/o.jpg'
+    ],
+    slug: 'ofis-ic-mimari',
+    size: 'large',
+  },
+  {
+    id: 29,
+    title: 'Zaho Residence',
+    location: 'Zaho, Irak',
+    year: '2023',
+    category: 'Konut',
+    image: '/assets/zaho/zaho-2.jpg',
+    images: [
+      '/assets/zaho/zaho-2.jpg',
+      '/assets/zaho/zaho-1.jpg',
+      '/assets/zaho/zaho-3.jpg',
+      '/assets/zaho/zaho-gorsel-1.jpg',
+      '/assets/zaho/zaho.jpg'
+    ],
+    slug: 'zaho-residence',
+    size: 'medium',
+  },
+  {
+    id: 28,
+    title: 'Simge Residence',
+    location: 'İstanbul',
+    year: '2023',
+    category: 'Konut',
+    image: '/assets/simge/x-7-foto.jpg',
+    images: [
+      '/assets/simge/x-7-foto.jpg',
+      '/assets/simge/as-1-photo.jpg',
+      '/assets/simge/as-2-foto.jpg',
+      '/assets/simge/as-3-foto.jpg',
+      '/assets/simge/as-4-foto.jpg',
+      '/assets/simge/as-5-foto.jpg',
+      '/assets/simge/as-6-foto.jpg',
+      '/assets/simge/balkon-1.jpg',
+      '/assets/simge/balkon-2.jpg',
+      '/assets/simge/balkon-3.jpg',
+      '/assets/simge/balkon-4.jpg',
+      '/assets/simge/balkon-5.jpg',
+      '/assets/simge/görsel-1.jpg',
+      '/assets/simge/görsel-2.jpg',
+      '/assets/simge/görsel-3.jpg',
+      '/assets/simge/görsel-5.jpg',
+      '/assets/simge/görsel-8.jpg',
+      '/assets/simge/h-1-photo.jpg',
+      '/assets/simge/h-2-foto.jpg',
+      '/assets/simge/h-3-foto.jpg',
+      '/assets/simge/h-4-foto.jpg',
+      '/assets/simge/h-5-foto.jpg'
+    ],
+    slug: 'simge-residence',
+    size: 'large',
+  },
   {
     id: 1,
     title: 'Marin Loft',
@@ -399,217 +585,52 @@ const projects = [
     slug: 'ilker-residence',
     size: 'medium',
   },
-  {
-    id: 28,
-    title: 'Simge Residence',
-    location: 'İstanbul',
-    year: '2023',
-    category: 'Konut',
-    image: '/assets/simge/x-7-foto.jpg',
-    images: [
-      '/assets/simge/x-7-foto.jpg',
-      '/assets/simge/as-1-photo.jpg',
-      '/assets/simge/as-2-foto.jpg',
-      '/assets/simge/as-3-foto.jpg',
-      '/assets/simge/as-4-foto.jpg',
-      '/assets/simge/as-5-foto.jpg',
-      '/assets/simge/as-6-foto.jpg',
-      '/assets/simge/balkon-1.jpg',
-      '/assets/simge/balkon-2.jpg',
-      '/assets/simge/balkon-3.jpg',
-      '/assets/simge/balkon-4.jpg',
-      '/assets/simge/balkon-5.jpg',
-      '/assets/simge/görsel-1.jpg',
-      '/assets/simge/görsel-2.jpg',
-      '/assets/simge/görsel-3.jpg',
-      '/assets/simge/görsel-5.jpg',
-      '/assets/simge/görsel-8.jpg',
-      '/assets/simge/h-1-photo.jpg',
-      '/assets/simge/h-2-foto.jpg',
-      '/assets/simge/h-3-foto.jpg',
-      '/assets/simge/h-4-foto.jpg',
-      '/assets/simge/h-5-foto.jpg'
-    ],
-    slug: 'simge-residence',
-    size: 'large',
-  },
-  {
-    id: 29,
-    title: 'Zaho Residence',
-    location: 'Zaho, Irak',
-    year: '2023',
-    category: 'Konut',
-    image: '/assets/zaho/zaho-2.jpg',
-    images: [
-      '/assets/zaho/zaho-2.jpg',
-      '/assets/zaho/zaho-1.jpg',
-      '/assets/zaho/zaho-3.jpg',
-      '/assets/zaho/zaho-gorsel-1.jpg',
-      '/assets/zaho/zaho.jpg'
-    ],
-    slug: 'zaho-residence',
-    size: 'medium',
-  },
-  {
-    id: 30,
-    title: 'İsar Mühendislik',
-    location: 'İstanbul',
-    year: '2023',
-    category: 'Ofis',
-    image: '/assets/ofis/giris-1.jpg',
-    images: [
-      '/assets/ofis/giris-1.jpg',
-      '/assets/ofis/giris-2.jpg',
-      '/assets/ofis/giris-3.jpg',
-      '/assets/ofis/bina-girisi.jpg',
-      '/assets/ofis/koridor.jpg',
-      '/assets/ofis/mudur-odasi-1.jpg',
-      '/assets/ofis/mudur-odasi-2.jpg',
-      '/assets/ofis/mudur-odasi-3.jpg',
-      '/assets/ofis/toplanti-odasi-1.jpg',
-      '/assets/ofis/toplanti-odasi-2.jpg',
-      '/assets/ofis/toplanti-odasi-7.jpg',
-      '/assets/ofis/isa-oda-12.jpg',
-      '/assets/ofis/isa-oda-13.jpg',
-      '/assets/ofis/isa-oda-14.jpg',
-      '/assets/ofis/muhasebe.jpg',
-      '/assets/ofis/sekreter.jpg',
-      '/assets/ofis/teknik-ofis.jpg',
-      '/assets/ofis/teknik-ofis-muhasebe.jpg',
-      '/assets/ofis/plan.jpg',
-      '/assets/ofis/mmm.jpg',
-      '/assets/ofis/sss.jpg',
-      '/assets/ofis/o.jpg'
-    ],
-    slug: 'ofis-ic-mimari',
-    size: 'large',
-  },
-  {
-    id: 31,
-    title: 'Arif Residence',
-    location: 'İstanbul',
-    year: '2023',
-    category: 'Konut',
-    image: '/assets/arif/discephe-2.jpg',
-    images: [
-      '/assets/arif/discephe-2.jpg',
-      '/assets/arif/discephe-1.jpg',
-      '/assets/arif/discephe-3.jpg',
-      '/assets/arif/discephe-4.jpg',
-      '/assets/arif/discephe-5.jpg',
-      '/assets/arif/discephe-6.jpg',
-      '/assets/arif/discephe-7.jpg',
-      '/assets/arif/discephe-8.jpg',
-      '/assets/arif/discephe-9.jpg',
-      '/assets/arif/discephe-10.jpg',
-      '/assets/arif/discephe-11.jpg',
-      '/assets/arif/ic-gorsel-1.jpg',
-      '/assets/arif/ic-gorsel-2.jpg',
-      '/assets/arif/ic-gorsel-3.jpg',
-      '/assets/arif/ic-gorsel-4.jpg',
-      '/assets/arif/ic-gorsel-5.jpg',
-      '/assets/arif/ic-gorsel-6.jpg',
-      '/assets/arif/ic-gorsel-7.jpg',
-      '/assets/arif/ic-gorsel-8.jpg',
-      '/assets/arif/ic-gorsel-9.jpg',
-      '/assets/arif/ic-gorsel-10.jpg',
-      '/assets/arif/instagram-1.jpg'
-    ],
-    slug: 'arif-residence',
-    size: 'large',
-  },
-  {
-    id: 32,
-    title: 'İlker Taştekin Evi',
-    location: 'Foça, İzmir',
-    year: '2015',
-    category: 'Villa',
-    image: '/assets/ilker/gorsel-1.jpg',
-    images: [
-      '/assets/ilker/gorsel-1.jpg',
-      '/assets/ilker/gorsel-2.jpg',
-      '/assets/ilker/gorsel-3.jpg',
-      '/assets/ilker/gorsel-4.jpg',
-      '/assets/ilker/gorsel-5.jpg',
-      '/assets/ilker/gorsel-6.jpg',
-      '/assets/ilker/gorsel-7.jpg',
-      '/assets/ilker/gorsel-8.jpg',
-      '/assets/ilker/gorsel-9.jpg',
-      '/assets/ilker/gorsel-10.jpg',
-      '/assets/ilker/gorsel-11.jpg',
-      '/assets/ilker/gorsel-12.jpg',
-      '/assets/ilker/gorsel-13.jpg',
-      '/assets/ilker/gorsel-14.jpg',
-      '/assets/ilker/gorsel-15.jpg',
-      '/assets/ilker/gorsel-16.jpg',
-      '/assets/ilker/gorsel-17.jpg',
-      '/assets/ilker/gorsel-18.jpg',
-      '/assets/ilker/gorsel-19.jpg',
-      '/assets/ilker/gorsel-20.jpg',
-      '/assets/ilker/gorsel-21.jpg',
-      '/assets/ilker/insta.jpg',
-      '/assets/ilker/instagram1.jpg'
-    ],
-    slug: 'ilker-tastekin-evi',
-    size: 'large',
-  },
 ];
 
 // Project Card Component
 function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
-  const [currentImage, setCurrentImage] = useState(project.image);
-
-  const handleThumbnailClick = (e: React.MouseEvent, imagePath: string) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setCurrentImage(imagePath);
-  };
-
   return (
     <motion.div
       key={project.id}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.03 }}
-      className="group relative aspect-[4/3] overflow-visible bg-black border border-gray-900 hover:border-gray-700 transition-all duration-500"
+      transition={{ duration: 0.4, delay: index * 0.02 }}
+      className="group relative aspect-[4/3] overflow-hidden bg-black border border-gray-900 hover:border-gray-700 transition-all duration-500"
     >
       <Link
         to={`/projeler/${project.slug}`}
         className="block w-full h-full"
       >
         {/* Image */}
-        <div className="relative w-full h-full overflow-hidden">
-          <motion.img
-            key={currentImage}
-            src={currentImage}
+        <div className="relative w-full h-full overflow-hidden bg-gray-900">
+          <img
+            src={project.image}
             alt={project.title}
             loading="lazy"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4 }}
-            className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110"
+            decoding="async"
+            className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+            style={{ contentVisibility: 'auto' }}
           />
         </div>
         
-        {/* Gradient Overlay - Subtle on the right side */}
-        <div className="absolute inset-0 bg-gradient-to-l from-black/70 via-black/30 to-transparent pointer-events-none" />
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
         
-        {/* Content - Positioned on the right */}
-        <div className="absolute inset-0 flex flex-col justify-end items-end p-8 text-right">
+        {/* Content */}
+        <div className="absolute inset-0 flex flex-col justify-end p-6">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.4 }}
             viewport={{ once: true }}
-            className="max-w-md"
           >
             {/* Title */}
-            <h3 className="text-3xl md:text-4xl font-display font-light text-white mb-4 group-hover:text-gray-200 transition-colors">
+            <h3 className="text-2xl md:text-3xl font-display font-light text-white mb-3 group-hover:text-gray-200 transition-colors">
               {project.title}
             </h3>
             
             {/* Meta Info */}
-            <div className="flex items-center justify-end gap-4 text-sm text-gray-300 font-body mb-4">
+            <div className="flex items-center gap-4 text-sm text-gray-300 font-body mb-3">
               <div className="flex items-center gap-2">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -625,33 +646,8 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
               </div>
             </div>
             
-            {/* Thumbnail Gallery - Always Visible */}
-            <div className="flex gap-2 mb-4 justify-end">
-              {project.images.slice(0, 5).map((img, idx) => (
-                <motion.button
-                  key={idx}
-                  onClick={(e) => handleThumbnailClick(e, img)}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3, delay: 0.3 + idx * 0.05 }}
-                  className={`relative w-12 h-12 flex-shrink-0 overflow-hidden border-2 transition-all duration-300 pointer-events-auto ${
-                    currentImage === img 
-                      ? 'border-white shadow-lg shadow-white/20' 
-                      : 'border-white/30 hover:border-white/60'
-                  }`}
-                >
-                  <img
-                    src={img}
-                    alt={`${project.title} ${idx + 1}`}
-                    loading="lazy"
-                    className="w-full h-full object-cover"
-                  />
-                </motion.button>
-              ))}
-            </div>
-            
-            {/* CTA Button */}
-            <div className="flex items-center justify-end gap-2 text-white font-body text-sm uppercase tracking-wider group-hover:gap-4 transition-all duration-300 pointer-events-none">
+            {/* CTA */}
+            <div className="flex items-center gap-2 text-white font-body text-xs uppercase tracking-wider group-hover:gap-3 transition-all duration-300">
               <span>Detayları Görüntüle</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -665,6 +661,35 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
 }
 
 export default function Projects() {
+  const [visibleProjects, setVisibleProjects] = useState(6); // 8'den 6'ya düşürdüm
+  const [isLoading, setIsLoading] = useState(false);
+  const observerTarget = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && visibleProjects < projects.length && !isLoading) {
+          setIsLoading(true);
+          setTimeout(() => {
+            setVisibleProjects((prev) => Math.min(prev + 4, projects.length)); // 6'dan 4'e düşürdüm
+            setIsLoading(false);
+          }, 300); // 500'den 300'e düşürdüm
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (observerTarget.current) {
+      observer.observe(observerTarget.current);
+    }
+
+    return () => {
+      if (observerTarget.current) {
+        observer.unobserve(observerTarget.current);
+      }
+    };
+  }, [visibleProjects, isLoading]);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -699,10 +724,29 @@ export default function Projects() {
       <section className="py-20 px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
+            {projects.slice(0, visibleProjects).map((project, index) => (
               <ProjectCard key={project.id} project={project} index={index} />
             ))}
           </div>
+
+          {/* Loading Indicator */}
+          {isLoading && (
+            <div className="flex justify-center items-center py-12">
+              <div className="w-8 h-8 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          )}
+
+          {/* Intersection Observer Target */}
+          {visibleProjects < projects.length && (
+            <div ref={observerTarget} className="h-20"></div>
+          )}
+
+          {/* End Message */}
+          {visibleProjects >= projects.length && (
+            <div className="text-center py-12">
+              <p className="text-gray-500 font-body">Tüm projeler yüklendi</p>
+            </div>
+          )}
         </div>
       </section>
     </motion.div>

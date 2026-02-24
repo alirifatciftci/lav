@@ -192,7 +192,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="py-8 border-t border-gray-900 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-sm text-gray-500 font-body">
-            © 2024 LAV Mimarlık. Tüm hakları saklıdır.
+            © 2026 LAV Mimarlık. Tüm hakları saklıdır.
           </div>
           <div className="text-sm text-gray-500 font-body">
             <a 
